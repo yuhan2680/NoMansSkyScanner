@@ -1,0 +1,76 @@
+{
+  "pid": 29844,
+  "mode": "external_read_only",
+  "no_game_calls": true,
+  "samples": [
+    {
+      "time": "2026-09-03T03:32:18.357572+00:00",
+      "app_state": "GALAXYMAP",
+      "state_queue_empty": true,
+      "app_paused": 0,
+      "environment": 10,
+      "stable_environment": 10,
+      "warp_request": 3,
+      "warp_transition": 0,
+      "map_kind": 0,
+      "map_phase": 0,
+      "map_fade": 0.0,
+      "map_fade2": 0.0,
+      "map_timer": 0.0,
+      "map_clock": 321.8856201171875,
+      "camera_state": 0,
+      "camera_flag": 0,
+      "camera_transition": 0,
+      "cache_busy_ready": [
+        0,
+        1
+      ]
+    },
+    {
+      "time": "2026-09-03T03:32:19.359050+00:00",
+      "app_state": "GALAXYMAP",
+      "state_queue_empty": true,
+      "app_paused": 0,
+      "environment": 10,
+      "stable_environment": 10,
+      "warp_request": 3,
+      "warp_transition": 0,
+      "map_kind": 0,
+      "map_phase": 0,
+      "map_fade": 0.0,
+      "map_fade2": 0.0,
+      "map_timer": 0.0,
+      "map_clock": 322.88372802734375,
+      "camera_state": 0,
+      "camera_flag": 0,
+      "camera_transition": 0,
+      "cache_busy_ready": [
+        0,
+        1
+      ]
+    },
+    {
+      "time": "2026-09-03T03:32:20.359481+00:00",
+      "app_state": "GALAXYMAP",
+      "state_queue_empty": true,
+      "app_paused": 0,
+      "environment": 10,
+      "stable_environment": 10,
+      "warp_request": 3,
+      "warp_transition": 0,
+      "map_kind": 0,
+      "map_phase": 0,
+      "map_fade": 0.0,
+      "map_fade2": 0.0,
+      "map_timer": 0.0,
+      "map_clock": 323.89459228515625,
+      "camera_state": 0,
+      "camera_flag": 0,
+      "camera_transition": 0,
+      "cache_busy_ready": [
+        0,
+        1
+      ]
+    }
+  ]
+}

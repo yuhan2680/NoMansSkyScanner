@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "mode": "observation_only",
+  "exe_sha256": "ea7e5a29bbf931f96ae8dda81553353aab3431dc38e4ed7dfb66bdce100770e3",
+  "game_internal_version": "170671",
+  "upstream_commit": "886a149e5aa7873777fc2fa14b73dc0c516cf794",
+  "hotkeys": {
+    "primary": "F1",
+    "upload": "F2",
+    "stop": "F3"
+  },
+  "worker_interval_seconds": 0.05,
+  "summary_interval_seconds": 1.0,
+  "interaction_data_offset": 48,
+  "interaction_type_offset": 544,
+  "scanner_type": 35,
+  "warp_result_status_offset": 8,
+  "hooks": {
+    "application_update": {
+      "name": "cGcApplication::Update",
+      "rva": "0x2da8e0",
+      "signature": "40 53 48 83 EC 20 E8 ? ? ? ? 48 89",
+      "mangled_name": "?Update@cGcApplication@@QEAAXXZ",
+      "runtime_verified": false
+    },
+    "simulation_update": {
+      "name": "cGcGameState::Update",
+      "rva": "0x469b90",
+      "signature": "48 8B C4 48 89 58 ? 48 89 70 ? 55 57 41 54 41 56 41 57 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? F3 0F 10 91",
+      "mangled_name": "?Update@cGcGameState@@QEAAXM@Z",
+      "runtime_verified": false
+    },
+    "state_change": {
+      "name": "cTkFSM::StateChange",
+      "rva": "0x2998a20",
+      "signature": "48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 4C 8B 51 ? 49 8B E8",
+      "mangled_name": "?StateChange@cTkFSM@@IEAAXAEBT?$TkID@$0IA@@@PEBX_N@Z",
+      "runtime_verified": false
+    },
+    "interaction": {
+      "name": "cGcSimpleInteractionComponent::DoAction",
+      "rva": "0xf857b0",
+      "signature": "48 8B C4 55 41 56 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? 48 89 58 ? 4C 8B F1 48 89 70 ? 48 8D 8D",
+      "mangled_name": "?DoAction@cGcSimpleInteractionComponent@@AEAAXXZ",
+      "runtime_verified": false
+    },
+    "discovery": {
+      "name": "cGcDiscoveryManager::SubmitDiscoveryData",
+      "rva": "0x433b20",
+      "signature": "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B 59 ? 49 8B F8 48 8B F2",
+      "mangled_name": "?SubmitDiscoveryData@cGcDiscoveryManager@@QEAA_NAEBVcGcDiscoveryData@@PEA_N@Z",
+      "runtime_verified": false
+    },
+    "warp_check": {
+      "name": "cGcGameState::ComputeWarpCapability",
+      "rva": "0x46ac70",
+      "signature": "40 53 56 41 54 41 55 41 56",
+      "mangled_name": "?ComputeWarpCapability@cGcGameState@@QEBA?AUWarpCapabilityResult@@M_N_KAEBUStarSystemKeyAttributes@cGcGalaxyAttributeGenerator@@@Z",
+      "runtime_verified": false
+    },
+    "warp_candidate": {
+      "name": "galaxy_map_warp_candidate_122C1B0",
+      "rva": "0x122c1b0",
+      "signature": "48 8B C4 48 89 58 10 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 90 48 81 EC 70 01 00 00 0F 29 70 B8",
+      "provenance": "Offline disassembly: RCX=map data, DL=check-only, AL=bool; callers 0x121E10A and 0x121E71D. Observation only, never called by this tool.",
+      "runtime_verified": false
+    }
+  },
+  "image_size": 120115200
+}

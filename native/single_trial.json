@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "mode": "experimental_single_from_open_map",
+  "phase_timeout_seconds": 90.0,
+  "max_candidate_attempts": 64,
+  "map_settle_seconds": 5.0,
+  "selection_settle_seconds": 1.0,
+  "application": {
+    "rva": "0x6b44da0",
+    "reference_rvas": ["0x2daac8", "0x2daae3"]
+  },
+  "hooks": {
+    "map_update": {
+      "name": "cGcGalaxyMap::Data::Update",
+      "rva": "0x121c960",
+      "signature": "40 55 53 56 57 41 57 48 8D AC 24 30 B5 FF FF B8 D0 4B 00 00 E8 07 F5 F1 01 48 2B E0 4C 89 A4 24 C8 4B 00 00 0F 28 C1 F3",
+      "runtime_verified": false
+    },
+    "world_update": {
+      "name": "cGcSimulation::Update",
+      "rva": "0x12a1060",
+      "signature": "48 8B C4 89 50 10 55 48 8D 6C 24 80 48 81 EC 80 01 00 00 44 0F 29 98 68 FF FF FF 48 89 58 18 48 89 70 F0 48 89 78 E8 4C",
+      "runtime_verified": false
+    }
+  },
+  "calls": {
+    "own_freighter": {
+      "name": "cGcPlayerEnvironment::IsOnboardOwnFreighter",
+      "rva": "0x114ae30",
+      "signature": "48 83 EC 48 80 B9 FE 02 00 00 00 C6 04 24 00 74 2D 48 8D 81 01 03 00 00 4C 8D 04 24 4C 2B C0 90 0F B6 10 42 0F B6 0C 00",
+      "runtime_verified": false
+    },
+    "query_star": {
+      "name": "cGcGalaxyVoxelCache::SpatialQueryFindNearestAlongDir",
+      "rva": "0x124e410",
+      "signature": "4C 8B DC 49 89 53 10 55 57 41 54 41 55 49 8D 6B B8 48 81 EC 28 01 00 00 0F B6 81 91 01 00 00 4D 8B E1 4D 8B E8 48 8B F9",
+      "runtime_verified": false
+    },
+    "select_star": {
+      "name": "map_selection_1226B20",
+      "rva": "0x1226b20",
+      "signature": "48 8B C4 48 89 58 18 48 89 70 20 55 57 41 54 41 55 41 57 48 8D A8 98 FA FF FF 48 81 EC 40 06 00 00 44 0F B7 7A 10 48 8B",
+      "runtime_verified": false
+    },
+    "star_distance": {
+      "name": "SolarQueryResult::ComputeLightyearDistanceBetweenSolarSystems",
+      "rva": "0x124c570",
+      "signature": "48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 83 EC 40 44 0F B7 41 10 4C 8B D2 44 0F B7 59 12 41 BE",
+      "runtime_verified": false
+    },
+    "classify_star": {
+      "name": "cGcGalaxyAttributeGenerator::ClassifyStarKeyAttributes",
+      "rva": "0x1216440",
+      "signature": "48 89 5C 24 10 48 89 74 24 18 55 57 41 54 41 56 41 57 48 8D 6C 24 D0 48 81 EC 30 01 00 00 8B F9 8B D9 8B F1 C1 E7 14 4C",
+      "runtime_verified": false
+    }
+  },
+  "layout": {
+    "application_data": 56,
+    "application_map_data": 9616136,
+    "application_paused": 46245,
+    "warp_request": 7358432,
+    "warp_transition": 7342288,
+    "fsm_current_state": 16,
+    "fsm_state_name": 8,
+    "game_state": 3616,
+    "simulation": 4925664,
+    "current_ua": 2446080,
+    "player_environment": 5634464,
+    "map_initial": 5520,
+    "map_mode": 0,
+    "interactive_map_modes": [0, 3],
+    "map_clock": 5276,
+    "map_popup_state": 9924,
+    "map_popup_selection": 11355,
+    "popup_ready_state": 3,
+    "map_coordinate": 5380,
+    "map_cache": 80,
+    "cache_busy": 400,
+    "map_selected": 7088,
+    "selected_query": 32,
+    "voxel_size": 100.0,
+    "system_identity_mask": 4503599627370495,
+    "centre_test_mask": 18446742978492891135,
+    "centre_target": 1099511627776,
+    "solar_system": 2416592,
+    "planet_count": 8804,
+    "max_planets": 6,
+    "planet_discovery": 9784,
+    "planet_stride": 888944,
+    "discovery_manager": 2863576,
+    "scan_update_caller": "0x32ef23"
+  }
+}

@@ -1,0 +1,701 @@
+{
+  "captured_at": "2026-09-03T03:49:44.621607+00:00",
+  "mode": "log_analysis_only",
+  "pid": 29792,
+  "run_mode": "loop",
+  "duration_seconds": 38.078,
+  "result": {
+    "warps": 2,
+    "scans": 2,
+    "stop_reason": "max_warps"
+  },
+  "cycles": [
+    {
+      "cycle": 1,
+      "planet_submissions": 3,
+      "candidate_attempts": 1,
+      "map_open_to_warp_seconds": 6.046,
+      "load_seconds": 5.672,
+      "selected_ui_readiness": {
+        "map_elapsed_seconds": 6.05,
+        "popup_state": 3,
+        "popup_selection": 1,
+        "selection_elapsed_seconds": 1.05
+      }
+    },
+    {
+      "cycle": 2,
+      "planet_submissions": 5,
+      "candidate_attempts": 1,
+      "map_open_to_warp_seconds": 6.031,
+      "load_seconds": 6.547,
+      "selected_ui_readiness": {
+        "map_elapsed_seconds": 6.038,
+        "popup_state": 3,
+        "popup_selection": 1,
+        "selection_elapsed_seconds": 1.033
+      }
+    }
+  ],
+  "foreground_heartbeat_samples": {
+    "True": 38
+  },
+  "control_events": [],
+  "failure_events": [],
+  "max_dropped": 0,
+  "event_counts": {
+    "ready": 1,
+    "started": 1,
+    "single_stage": 18,
+    "run_limits": 1,
+    "state_change": 9,
+    "map_waiting": 4,
+    "map_ready": 4,
+    "warp_dispatch_candidate_enter": 2,
+    "warp_dispatch_candidate_return": 2,
+    "discovery_submit": 8,
+    "cycle_completed": 2,
+    "run_completed": 1
+  },
+  "events": [
+    {
+      "monotonic": 42936.593,
+      "event": "ready",
+      "thread_id": 11344,
+      "time": "2026-09-03T03:44:58.459534+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42949.25,
+      "event": "started",
+      "thread_id": 4292,
+      "time": "2026-09-03T03:45:11.112726+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42949.25,
+      "event": "single_stage",
+      "thread_id": 4292,
+      "stage": "between_cycles",
+      "time": "2026-09-03T03:45:11.112726+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42949.25,
+      "event": "run_limits",
+      "thread_id": 4292,
+      "max_warps": 2,
+      "max_runtime_seconds": 180.0,
+      "cycle_interval_seconds": 5.0,
+      "time": "2026-09-03T03:45:11.112726+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42954.25,
+      "event": "single_stage",
+      "thread_id": 4292,
+      "stage": "wait_ready",
+      "time": "2026-09-03T03:45:16.102242+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42954.25,
+      "event": "single_stage",
+      "thread_id": 26316,
+      "stage": "wait_map",
+      "time": "2026-09-03T03:45:16.152916+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42954.25,
+      "event": "state_change",
+      "thread_id": 26316,
+      "state": "GALAXYMAP",
+      "caller_rvas": [
+        "0x2999641",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e",
+        "0x313ba10"
+      ],
+      "time": "2026-09-03T03:45:16.152916+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42954.265,
+      "event": "map_waiting",
+      "thread_id": 26316,
+      "reason": "map_settling",
+      "stage": "wait_map",
+      "map_mode": 0,
+      "map_elapsed_seconds": 0.0,
+      "cache_ready": true,
+      "time": "2026-09-03T03:45:16.152916+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42959.25,
+      "event": "map_ready",
+      "thread_id": 26316,
+      "stage": "wait_map",
+      "map_mode": 0,
+      "map_elapsed_seconds": 5.0,
+      "cache_ready": true,
+      "time": "2026-09-03T03:45:21.140007+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42959.25,
+      "event": "single_stage",
+      "thread_id": 26316,
+      "stage": "searching",
+      "time": "2026-09-03T03:45:21.140514+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42959.25,
+      "event": "single_stage",
+      "thread_id": 26316,
+      "stage": "dispatch",
+      "time": "2026-09-03T03:45:21.140514+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42959.265,
+      "event": "map_waiting",
+      "thread_id": 26316,
+      "reason": "selection_transition_active",
+      "stage": "dispatch",
+      "map_mode": 0,
+      "map_elapsed_seconds": 5.017,
+      "cache_ready": true,
+      "popup_state": 0,
+      "popup_selection": 1,
+      "selection_elapsed_seconds": 0.017,
+      "time": "2026-09-03T03:45:21.140514+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42960.296,
+      "event": "map_ready",
+      "thread_id": 26316,
+      "stage": "dispatch",
+      "map_mode": 0,
+      "map_elapsed_seconds": 6.05,
+      "cache_ready": true,
+      "popup_state": 3,
+      "popup_selection": 1,
+      "selection_elapsed_seconds": 1.05,
+      "time": "2026-09-03T03:45:22.199047+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42960.296,
+      "event": "single_stage",
+      "thread_id": 26316,
+      "stage": "wait_load",
+      "time": "2026-09-03T03:45:22.199047+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42960.296,
+      "event": "warp_dispatch_candidate_enter",
+      "thread_id": 26316,
+      "caller_rvas": [
+        "0x2fb9b1",
+        "0x2999666",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e"
+      ],
+      "time": "2026-09-03T03:45:22.199047+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42960.296,
+      "event": "warp_dispatch_candidate_return",
+      "thread_id": 26316,
+      "returned_true": true,
+      "time": "2026-09-03T03:45:22.199047+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42960.562,
+      "event": "state_change",
+      "thread_id": 26316,
+      "state": "APPVIEW",
+      "caller_rvas": [
+        "0x2999641",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e",
+        "0x313ba10"
+      ],
+      "time": "2026-09-03T03:45:22.451190+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42962.062,
+      "event": "state_change",
+      "thread_id": 26316,
+      "state": "APPLOCALLOAD",
+      "caller_rvas": [
+        "0x2999641",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e",
+        "0x313ba10"
+      ],
+      "time": "2026-09-03T03:45:23.963520+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42962.109,
+      "event": "single_stage",
+      "thread_id": 4292,
+      "stage": "loading",
+      "time": "2026-09-03T03:45:23.963520+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42967.734,
+      "event": "state_change",
+      "thread_id": 26316,
+      "state": "APPVIEW",
+      "caller_rvas": [
+        "0x2999641",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e",
+        "0x313ba10"
+      ],
+      "time": "2026-09-03T03:45:29.604004+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42967.75,
+      "event": "single_stage",
+      "thread_id": 4292,
+      "stage": "wait_scan",
+      "time": "2026-09-03T03:45:29.604004+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42967.765,
+      "event": "single_stage",
+      "thread_id": 30560,
+      "stage": "scanning",
+      "time": "2026-09-03T03:45:29.654667+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42967.765,
+      "event": "discovery_submit",
+      "thread_id": 30560,
+      "caller_rvas": [
+        "0x32ef23",
+        "0x32e34c",
+        "0x29bcd8c"
+      ],
+      "time": "2026-09-03T03:45:29.654667+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42967.796,
+      "event": "discovery_submit",
+      "thread_id": 30560,
+      "caller_rvas": [
+        "0x32ef23",
+        "0x32e34c",
+        "0x29bcd8c"
+      ],
+      "time": "2026-09-03T03:45:29.705321+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42967.828,
+      "event": "discovery_submit",
+      "thread_id": 30560,
+      "caller_rvas": [
+        "0x32ef23",
+        "0x32e34c",
+        "0x29bcd8c"
+      ],
+      "time": "2026-09-03T03:45:29.705321+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42967.828,
+      "event": "cycle_completed",
+      "thread_id": 30560,
+      "warps": 1,
+      "scans": 1,
+      "planet_submissions": 3,
+      "candidate_attempts": 1,
+      "total_candidate_attempts": 1,
+      "time": "2026-09-03T03:45:29.705321+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42967.828,
+      "event": "single_stage",
+      "thread_id": 30560,
+      "stage": "between_cycles",
+      "time": "2026-09-03T03:45:29.705321+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42972.828,
+      "event": "single_stage",
+      "thread_id": 26316,
+      "stage": "wait_ready",
+      "time": "2026-09-03T03:45:34.692653+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42972.828,
+      "event": "single_stage",
+      "thread_id": 26316,
+      "stage": "wait_map",
+      "time": "2026-09-03T03:45:34.692653+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42972.828,
+      "event": "state_change",
+      "thread_id": 26316,
+      "state": "GALAXYMAP",
+      "caller_rvas": [
+        "0x2999641",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e",
+        "0x313ba10"
+      ],
+      "time": "2026-09-03T03:45:34.692653+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42972.875,
+      "event": "map_waiting",
+      "thread_id": 26316,
+      "reason": "map_settling",
+      "stage": "wait_map",
+      "map_mode": 0,
+      "map_elapsed_seconds": 0.0,
+      "cache_ready": true,
+      "time": "2026-09-03T03:45:34.743249+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42977.828,
+      "event": "map_ready",
+      "thread_id": 26316,
+      "stage": "wait_map",
+      "map_mode": 0,
+      "map_elapsed_seconds": 5.005,
+      "cache_ready": true,
+      "time": "2026-09-03T03:45:39.731228+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42977.828,
+      "event": "single_stage",
+      "thread_id": 26316,
+      "stage": "searching",
+      "time": "2026-09-03T03:45:39.731228+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42977.828,
+      "event": "single_stage",
+      "thread_id": 26316,
+      "stage": "dispatch",
+      "time": "2026-09-03T03:45:39.731228+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42977.843,
+      "event": "map_waiting",
+      "thread_id": 26316,
+      "reason": "selection_transition_active",
+      "stage": "dispatch",
+      "map_mode": 0,
+      "map_elapsed_seconds": 5.021,
+      "cache_ready": true,
+      "popup_state": 0,
+      "popup_selection": 1,
+      "selection_elapsed_seconds": 0.017,
+      "time": "2026-09-03T03:45:39.731228+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42978.859,
+      "event": "map_ready",
+      "thread_id": 26316,
+      "stage": "dispatch",
+      "map_mode": 0,
+      "map_elapsed_seconds": 6.038,
+      "cache_ready": true,
+      "popup_state": 3,
+      "popup_selection": 1,
+      "selection_elapsed_seconds": 1.033,
+      "time": "2026-09-03T03:45:40.739870+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42978.859,
+      "event": "single_stage",
+      "thread_id": 26316,
+      "stage": "wait_load",
+      "time": "2026-09-03T03:45:40.739870+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42978.859,
+      "event": "warp_dispatch_candidate_enter",
+      "thread_id": 26316,
+      "caller_rvas": [
+        "0x2fb9b1",
+        "0x2999666",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e"
+      ],
+      "time": "2026-09-03T03:45:40.739870+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42978.859,
+      "event": "warp_dispatch_candidate_return",
+      "thread_id": 26316,
+      "returned_true": true,
+      "time": "2026-09-03T03:45:40.739870+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42979.125,
+      "event": "state_change",
+      "thread_id": 26316,
+      "state": "APPVIEW",
+      "caller_rvas": [
+        "0x2999641",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e",
+        "0x313ba10"
+      ],
+      "time": "2026-09-03T03:45:40.992539+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42980.64,
+      "event": "state_change",
+      "thread_id": 26316,
+      "state": "APPLOCALLOAD",
+      "caller_rvas": [
+        "0x2999641",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e",
+        "0x313ba10"
+      ],
+      "time": "2026-09-03T03:45:42.504687+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42980.687,
+      "event": "single_stage",
+      "thread_id": 26316,
+      "stage": "loading",
+      "time": "2026-09-03T03:45:42.555368+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42987.187,
+      "event": "state_change",
+      "thread_id": 26316,
+      "state": "APPVIEW",
+      "caller_rvas": [
+        "0x2999641",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e",
+        "0x313ba10"
+      ],
+      "time": "2026-09-03T03:45:49.050074+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42987.187,
+      "event": "single_stage",
+      "thread_id": 4292,
+      "stage": "wait_scan",
+      "time": "2026-09-03T03:45:49.050074+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42987.218,
+      "event": "single_stage",
+      "thread_id": 26244,
+      "stage": "scanning",
+      "time": "2026-09-03T03:45:49.100657+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42987.218,
+      "event": "discovery_submit",
+      "thread_id": 26244,
+      "caller_rvas": [
+        "0x32ef23",
+        "0x32e34c",
+        "0x29bcd8c"
+      ],
+      "time": "2026-09-03T03:45:49.100657+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42987.25,
+      "event": "discovery_submit",
+      "thread_id": 26244,
+      "caller_rvas": [
+        "0x32ef23",
+        "0x32e34c",
+        "0x29bcd8c"
+      ],
+      "time": "2026-09-03T03:45:49.151235+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42987.281,
+      "event": "discovery_submit",
+      "thread_id": 26244,
+      "caller_rvas": [
+        "0x32ef23",
+        "0x32e34c",
+        "0x29bcd8c"
+      ],
+      "time": "2026-09-03T03:45:49.151235+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42987.312,
+      "event": "discovery_submit",
+      "thread_id": 26244,
+      "caller_rvas": [
+        "0x32ef23",
+        "0x32e34c",
+        "0x29bcd8c"
+      ],
+      "time": "2026-09-03T03:45:49.201799+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42987.328,
+      "event": "discovery_submit",
+      "thread_id": 26244,
+      "caller_rvas": [
+        "0x32ef23",
+        "0x32e34c",
+        "0x29bcd8c"
+      ],
+      "time": "2026-09-03T03:45:49.201799+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42987.328,
+      "event": "cycle_completed",
+      "thread_id": 26244,
+      "warps": 2,
+      "scans": 2,
+      "planet_submissions": 5,
+      "candidate_attempts": 1,
+      "total_candidate_attempts": 2,
+      "time": "2026-09-03T03:45:49.201799+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 42987.328,
+      "event": "run_completed",
+      "thread_id": 26244,
+      "reason": "max_warps",
+      "warps": 2,
+      "scans": 2,
+      "time": "2026-09-03T03:45:49.201799+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    },
+    {
+      "monotonic": 43014.343,
+      "event": "state_change",
+      "thread_id": 26316,
+      "state": "APPSHUTDOWN",
+      "caller_rvas": [
+        "0x2999641",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e",
+        "0x313ba10"
+      ],
+      "time": "2026-09-03T03:46:16.209412+00:00",
+      "pid": 29792,
+      "run_mode": "loop"
+    }
+  ],
+  "limitations": [
+    "Background not tested: all 38 activity heartbeats were foreground.",
+    "No active F2/F3 test in this session.",
+    "User explicitly confirmed two warps; two scans are confirmed by game-call logs."
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "generated_utc": "2026-09-02T22:53:22.734028+00:00",
+  "mode": "read_only_file_audit",
+  "executable_name": "NMS.exe",
+  "exe_sha256": "ea7e5a29bbf931f96ae8dda81553353aab3431dc38e4ed7dfb66bdce100770e3",
+  "exe_size": 85404232,
+  "pe_timestamp": 1781713716,
+  "signature_file_sha256": "0c9b3725a00559d3f59688a2386463de28955a7ff5e3c403c890f16104a21873",
+  "functions": [
+    {
+      "name": "cGcApplication::Update",
+      "status": "unique",
+      "mangled_name": "?Update@cGcApplication@@QEAAXXZ",
+      "rvas": [
+        "0x2da8e0"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cGcApplication::Construct",
+      "status": "unique",
+      "mangled_name": "?Construct@cGcApplication@@QEAAXXZ",
+      "rvas": [
+        "0x2caf90"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cTkFSM::StateChange",
+      "status": "unique",
+      "mangled_name": "?StateChange@cTkFSM@@IEAAXAEBT?$TkID@$0IA@@@PEBX_N@Z",
+      "rvas": [
+        "0x2998a20"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cTkFSMState::StateChange",
+      "status": "ambiguous",
+      "mangled_name": "?StateChange@cTkFSMState@@IEAAXAEBT?$TkID@$0IA@@@PEBX_N@Z",
+      "rvas": [
+        "0x2448883",
+        "0x2998af0"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cGcGameState::Update",
+      "status": "unique",
+      "mangled_name": "?Update@cGcGameState@@QEAAXM@Z",
+      "rvas": [
+        "0x469b90"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cGcGameState::ComputeWarpCapability",
+      "status": "unique",
+      "mangled_name": "?ComputeWarpCapability@cGcGameState@@QEBA?AUWarpCapabilityResult@@M_N_KAEBUStarSystemKeyAttributes@cGcGalaxyAttributeGenerator@@@Z",
+      "rvas": [
+        "0x46ac70"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cGcGalaxyMap::Data::Update",
+      "status": "unique",
+      "mangled_name": "?Update@Data@cGcGalaxyMap@@QEAAXM@Z",
+      "rvas": [
+        "0x121c960"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cGcGalaxyMap::Data::DoSolarPopup",
+      "status": "unique",
+      "mangled_name": "?DoSolarPopup@Data@cGcGalaxyMap@@QEAAXAEBUSolarQueryResult@@@Z",
+      "rvas": [
+        "0x1227420"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cGcGalaxyVoxelGenerator::Populate",
+      "status": "unique",
+      "mangled_name": "?Populate@cGcGalaxyVoxelGenerator@@SAX_KAEAVcGcGalaxyVoxelData@@AEBVcTkVector3@@@Z",
+      "rvas": [
+        "0x14180f0"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cGcGalaxyAttributeGenerator::ClassifyStarKeyAttributes",
+      "status": "unique",
+      "mangled_name": "?ClassifyStarKeyAttributes@cGcGalaxyAttributeGenerator@@SAX_KAEAUStarSystemKeyAttributes@1@@Z",
+      "rvas": [
+        "0x1216440"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cGcGalaxyAttributeGenerator::ClassifyStarKeyAttributes",
+      "status": "unique",
+      "mangled_name": "?ClassifyStarKeyAttributes@cGcGalaxyAttributeGenerator@@SAXAEAVcTkParallelRNG@@GAEAVcGcGalaxyVoxelAttributesData@@AEAUStarSystemKeyAttributes@1@_K@Z",
+      "rvas": [
+        "0x1216950"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cGcSolarSystemQuery::Run",
+      "status": "unique",
+      "mangled_name": "?Run@cGcSolarSystemQuery@@QEAAX_KW4Type@1@_N@Z",
+      "rvas": [
+        "0x151c0e0"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cGcSolarSystem::Generate",
+      "status": "unique",
+      "mangled_name": "?Generate@cGcSolarSystem@@QEAAX_NVcTkSeed@@@Z",
+      "rvas": [
+        "0x1503620"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cGcSolarSystem::Update",
+      "status": "unique",
+      "mangled_name": "?Update@cGcSolarSystem@@QEAAXM@Z",
+      "rvas": [
+        "0x1501330"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cGcPlayerEnvironment::IsOnboardOwnFreighter",
+      "status": "unique",
+      "mangled_name": "?IsOnboardOwnFreighter@cGcPlayerEnvironment@@QEBA_NXZ",
+      "rvas": [
+        "0x114ae30"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cGcSimpleInteractionComponent::DoAction",
+      "status": "unique",
+      "mangled_name": "?DoAction@cGcSimpleInteractionComponent@@AEAAXXZ",
+      "rvas": [
+        "0xf857b0"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cGcDiscoveryManager::SubmitDiscoveryData",
+      "status": "unique",
+      "mangled_name": "?SubmitDiscoveryData@cGcDiscoveryManager@@QEAA_NAEBVcGcDiscoveryData@@PEA_N@Z",
+      "rvas": [
+        "0x433b20"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "cGcRewardManager::GiveGenericReward",
+      "status": "unique",
+      "mangled_name": "?GiveGenericReward@cGcRewardManager@@QEAA_NAEBT?$TkID@$0IA@@@0AEBVcTkSeed@@_N2AEAH2W4InventoryChoice@@2@Z",
+      "rvas": [
+        "0xe57370"
+      ],
+      "runtime_verified": false
+    }
+  ],
+  "summary": {
+    "unique": 17,
+    "missing": 0,
+    "ambiguous": 1,
+    "not_in_upstream": 0
+  },
+  "ready_for_native_automation": false,
+  "unresolved": [
+    "ordinary_freighter_warp_dispatch_and_abi",
+    "warp_capability_result_layout",
+    "scanner_lifetime_or_independent_scan_entry",
+    "warp_and_scan_completion_observation",
+    "background_game_update_and_input_isolation"
+  ],
+  "source_abi_warnings": [
+    "SubmitDiscoveryData: types.py omits the bool return declared by the C++ symbol.",
+    "ComputeWarpCapability: WarpCapabilityResult layout is undefined upstream."
+  ],
+  "note": "Unique matches do not prove safe calls or correct structure layouts."
+}

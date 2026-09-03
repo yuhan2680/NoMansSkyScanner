@@ -1,0 +1,41 @@
+{
+  "result": "accepted",
+  "accepted_at_local_date": "2026-09-04",
+  "target": {
+    "platform": "Steam public",
+    "game_internal_version": 170671,
+    "executable_sha256": "ea7e5a29bbf931f96ae8dda81553353aab3431dc38e4ed7dfb66bdce100770e3"
+  },
+  "verified_sessions": [
+    {
+      "process_id": 29792,
+      "cycles": 2,
+      "failures": 0,
+      "dropped_events": 0
+    },
+    {
+      "process_id": 16956,
+      "cycles": 2,
+      "pause_resume_verified": true,
+      "failures": 0,
+      "dropped_events": 0
+    },
+    {
+      "process_id": 36780,
+      "cycles": 1,
+      "scanned_planets": 5,
+      "upload_records_queued": 16,
+      "upload_confirmed_in_game_by_user": true,
+      "stop_event_recorded": true,
+      "failures": 0,
+      "dropped_events": 0
+    }
+  ],
+  "controls_confirmed_by_user": {
+    "F1_start_pause_resume": true,
+    "F2_auto_upload_toggle": true,
+    "F3_stop": true
+  },
+  "notes": "Earlier failed calibration sessions are retained separately in failed-trials-20260903T1124-1126.json; they predate the corrected implementation."
+}
+

@@ -1,0 +1,102 @@
+{
+  "source": "logs/native-observer.jsonl",
+  "pid": 36780,
+  "run_mode": "loop",
+  "game_internal_version": "170671",
+  "events": [
+    {
+      "time": "2026-09-03T17:00:44.134548+00:00",
+      "monotonic": 90682.265,
+      "event": "ready",
+      "game_foreground": false
+    },
+    {
+      "time": "2026-09-03T17:00:50.987342+00:00",
+      "monotonic": 90689.125,
+      "event": "auto_upload_changed",
+      "enabled": true,
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T17:00:55.469220+00:00",
+      "monotonic": 90693.609,
+      "event": "started",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T17:00:55.469220+00:00",
+      "monotonic": 90693.609,
+      "event": "run_limits",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T17:01:05.493333+00:00",
+      "monotonic": 90703.625,
+      "event": "map_ready",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T17:01:06.601368+00:00",
+      "monotonic": 90704.703,
+      "event": "map_ready",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T17:01:06.601368+00:00",
+      "monotonic": 90704.703,
+      "event": "warp_dispatch_candidate_return",
+      "returned_true": true,
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T17:01:15.961125+00:00",
+      "monotonic": 90714.093,
+      "event": "scan_completed",
+      "warps": 1,
+      "scans": 1,
+      "planet_submissions": 5,
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T17:01:17.975595+00:00",
+      "monotonic": 90716.109,
+      "event": "upload_queued",
+      "records": 16,
+      "upload_batches": 1,
+      "upload_records": 16,
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T17:01:17.975595+00:00",
+      "monotonic": 90716.109,
+      "event": "cycle_completed",
+      "warps": 1,
+      "scans": 1,
+      "planet_submissions": 5,
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T17:01:17.975595+00:00",
+      "monotonic": 90716.109,
+      "event": "run_completed",
+      "reason": "max_warps",
+      "warps": 1,
+      "scans": 1,
+      "game_foreground": true
+    }
+  ],
+  "summary": {
+    "auto_upload_enabled_before_start": true,
+    "automated_warps": 1,
+    "automated_scans": 1,
+    "planet_submissions": 5,
+    "upload_batches": 1,
+    "upload_records_processed": 16,
+    "scan_to_upload_seconds": 2.016,
+    "run_completed_reason": "max_warps",
+    "failures": 0,
+    "dropped": 0,
+    "user_observation": "User confirmed the discoveries were uploaded and the feature worked.",
+    "focus_note": "All action events were foreground=true. Background/minimized operation is not established by this trial."
+  }
+}

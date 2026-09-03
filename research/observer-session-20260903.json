@@ -1,0 +1,58 @@
+{
+  "source": "logs/native-observer.jsonl",
+  "source_sha256": "8db2dfae5c1f7ef314d7fcce259281fa6e87db986e549b56bbcd66921863f3be",
+  "game_pid_from_attachment_log": 15000,
+  "local_date": "2026-09-03",
+  "events": [
+    {
+      "monotonic": 26588.078,
+      "event": "ready",
+      "time": "2026-09-02T23:12:29.935074+00:00"
+    },
+    {
+      "monotonic": 26749.312,
+      "event": "started",
+      "time": "2026-09-02T23:15:11.179919+00:00"
+    },
+    {
+      "monotonic": 27257.75,
+      "event": "state_change",
+      "state": "APPSHUTDOWN",
+      "caller_rvas": [
+        "0x2999641",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e",
+        "0x313ba10"
+      ],
+      "time": "2026-09-02T23:23:39.627331+00:00"
+    }
+  ],
+  "last_heartbeat": {
+    "time": "2026-09-02T23:23:40.332173+00:00",
+    "event": "heartbeat",
+    "game_foreground": true,
+    "active": true,
+    "paused": false,
+    "stopped": false,
+    "counts": {
+      "application_update": 15677,
+      "simulation_update": 15676,
+      "state_change": 1
+    },
+    "dropped": 0
+  },
+  "rates": {
+    "foreground": {
+      "sample_intervals": 14,
+      "median_game_state_update_calls_per_second": 59.61
+    },
+    "background": {
+      "sample_intervals": 487,
+      "median_game_state_update_calls_per_second": 29.76
+    }
+  },
+  "observed_auto_warps": 0,
+  "observed_auto_scans": 0,
+  "interpretation": "F1 enabled recording. Update functions were called out of focus. APPSHUTDOWN matches the user-reported exit. This does not verify complete background simulation, input isolation, or successful warp/scan."
+}

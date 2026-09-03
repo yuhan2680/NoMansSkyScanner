@@ -1,0 +1,373 @@
+{
+  "captured_at": "2026-09-03T03:42:35.693236+00:00",
+  "mode": "log_analysis_only",
+  "sessions": [
+    {
+      "pid": 27336,
+      "run_mode": "single",
+      "map_entry_to_dispatch_seconds": 0.063,
+      "event_counts": {
+        "ready": 1,
+        "started": 1,
+        "single_stage": 4,
+        "state_change": 2,
+        "warp_dispatch_candidate_enter": 1,
+        "warp_dispatch_candidate_return": 1,
+        "single_failed": 1
+      },
+      "events": [
+        {
+          "monotonic": 41691.046,
+          "event": "ready",
+          "thread_id": 29736,
+          "time": "2026-09-03T03:24:12.913680+00:00",
+          "pid": 27336,
+          "run_mode": "single"
+        },
+        {
+          "monotonic": 41707.484,
+          "event": "started",
+          "thread_id": 29768,
+          "time": "2026-09-03T03:24:29.351879+00:00",
+          "pid": 27336,
+          "run_mode": "single"
+        },
+        {
+          "monotonic": 41707.484,
+          "event": "single_stage",
+          "thread_id": 29768,
+          "stage": "wait_map",
+          "time": "2026-09-03T03:24:29.351879+00:00",
+          "pid": 27336,
+          "run_mode": "single"
+        },
+        {
+          "monotonic": 41726.593,
+          "event": "state_change",
+          "thread_id": 2128,
+          "state": "GALAXYMAP",
+          "caller_rvas": [
+            "0x2999641",
+            "0x2daadc",
+            "0x5f800b",
+            "0x5f7d9e",
+            "0x313ba10"
+          ],
+          "time": "2026-09-03T03:24:48.456030+00:00",
+          "pid": 27336,
+          "run_mode": "single"
+        },
+        {
+          "monotonic": 41726.656,
+          "event": "single_stage",
+          "thread_id": 2128,
+          "stage": "searching",
+          "time": "2026-09-03T03:24:48.556867+00:00",
+          "pid": 27336,
+          "run_mode": "single"
+        },
+        {
+          "monotonic": 41726.656,
+          "event": "single_stage",
+          "thread_id": 2128,
+          "stage": "dispatch",
+          "time": "2026-09-03T03:24:48.557384+00:00",
+          "pid": 27336,
+          "run_mode": "single"
+        },
+        {
+          "monotonic": 41726.656,
+          "event": "single_stage",
+          "thread_id": 2128,
+          "stage": "wait_load",
+          "time": "2026-09-03T03:24:48.557384+00:00",
+          "pid": 27336,
+          "run_mode": "single"
+        },
+        {
+          "monotonic": 41726.656,
+          "event": "warp_dispatch_candidate_enter",
+          "thread_id": 2128,
+          "caller_rvas": [
+            "0x2fb9b1",
+            "0x2999666",
+            "0x2daadc",
+            "0x5f800b",
+            "0x5f7d9e"
+          ],
+          "time": "2026-09-03T03:24:48.557384+00:00",
+          "pid": 27336,
+          "run_mode": "single"
+        },
+        {
+          "monotonic": 41726.656,
+          "event": "warp_dispatch_candidate_return",
+          "thread_id": 2128,
+          "returned_true": true,
+          "time": "2026-09-03T03:24:48.557384+00:00",
+          "pid": 27336,
+          "run_mode": "single"
+        },
+        {
+          "monotonic": 41759.843,
+          "event": "state_change",
+          "thread_id": 2128,
+          "state": "APPSHUTDOWN",
+          "caller_rvas": [
+            "0x2999641",
+            "0x2daadc",
+            "0x5f800b",
+            "0x5f7d9e",
+            "0x313ba10"
+          ],
+          "time": "2026-09-03T03:25:21.727266+00:00",
+          "pid": 27336,
+          "run_mode": "single"
+        },
+        {
+          "monotonic": 41759.875,
+          "event": "single_failed",
+          "thread_id": 29768,
+          "reason": "unexpected_game_state",
+          "warps": 0,
+          "scans": 0,
+          "candidate_attempts": 1,
+          "time": "2026-09-03T03:25:21.727266+00:00",
+          "pid": 27336,
+          "run_mode": "single"
+        }
+      ],
+      "heartbeat_first": {
+        "time": "2026-09-03T03:24:12.913680+00:00",
+        "event": "heartbeat",
+        "pid": 27336,
+        "run_mode": "single",
+        "automation_stage": "idle",
+        "automated_warps": 0,
+        "automated_scans": 0,
+        "game_foreground": false,
+        "active": false,
+        "paused": false,
+        "stopped": false,
+        "counts": {},
+        "dropped": 0
+      },
+      "heartbeat_last": {
+        "time": "2026-09-03T03:25:22.484614+00:00",
+        "event": "heartbeat",
+        "pid": 27336,
+        "run_mode": "single",
+        "automation_stage": "failed",
+        "automated_warps": 0,
+        "automated_scans": 0,
+        "game_foreground": false,
+        "active": true,
+        "paused": false,
+        "stopped": false,
+        "counts": {
+          "application_update": 2521,
+          "simulation_update": 2520,
+          "state_change": 2,
+          "warp_capability_check": 5,
+          "warp_capability_status_2": 1,
+          "warp_capability_status_1": 4,
+          "warp_candidate_check": 1,
+          "warp_dispatch_candidate_enter": 1,
+          "warp_dispatch_candidate_return": 1
+        },
+        "dropped": 0
+      }
+    },
+    {
+      "pid": 29844,
+      "run_mode": "loop",
+      "map_entry_to_dispatch_seconds": 0.032,
+      "event_counts": {
+        "ready": 1,
+        "started": 1,
+        "single_stage": 6,
+        "run_limits": 1,
+        "state_change": 1,
+        "warp_dispatch_candidate_enter": 1,
+        "warp_dispatch_candidate_return": 1,
+        "single_failed": 1
+      },
+      "events": [
+        {
+          "monotonic": 41843.593,
+          "event": "ready",
+          "thread_id": 7888,
+          "time": "2026-09-03T03:26:45.450069+00:00",
+          "pid": 29844,
+          "run_mode": "loop"
+        },
+        {
+          "monotonic": 41849.593,
+          "event": "started",
+          "thread_id": 30136,
+          "time": "2026-09-03T03:26:51.450396+00:00",
+          "pid": 29844,
+          "run_mode": "loop"
+        },
+        {
+          "monotonic": 41849.593,
+          "event": "single_stage",
+          "thread_id": 30136,
+          "stage": "between_cycles",
+          "time": "2026-09-03T03:26:51.450396+00:00",
+          "pid": 29844,
+          "run_mode": "loop"
+        },
+        {
+          "monotonic": 41849.593,
+          "event": "run_limits",
+          "thread_id": 30136,
+          "max_warps": 2,
+          "max_runtime_seconds": 180.0,
+          "cycle_interval_seconds": 5.0,
+          "time": "2026-09-03T03:26:51.450396+00:00",
+          "pid": 29844,
+          "run_mode": "loop"
+        },
+        {
+          "monotonic": 41854.593,
+          "event": "single_stage",
+          "thread_id": 27424,
+          "stage": "wait_ready",
+          "time": "2026-09-03T03:26:56.488194+00:00",
+          "pid": 29844,
+          "run_mode": "loop"
+        },
+        {
+          "monotonic": 41854.593,
+          "event": "single_stage",
+          "thread_id": 27424,
+          "stage": "wait_map",
+          "time": "2026-09-03T03:26:56.488194+00:00",
+          "pid": 29844,
+          "run_mode": "loop"
+        },
+        {
+          "monotonic": 41854.593,
+          "event": "state_change",
+          "thread_id": 27424,
+          "state": "GALAXYMAP",
+          "caller_rvas": [
+            "0x2999641",
+            "0x2daadc",
+            "0x5f800b",
+            "0x5f7d9e",
+            "0x313ba10"
+          ],
+          "time": "2026-09-03T03:26:56.488194+00:00",
+          "pid": 29844,
+          "run_mode": "loop"
+        },
+        {
+          "monotonic": 41854.609,
+          "event": "single_stage",
+          "thread_id": 27424,
+          "stage": "searching",
+          "time": "2026-09-03T03:26:56.488194+00:00",
+          "pid": 29844,
+          "run_mode": "loop"
+        },
+        {
+          "monotonic": 41854.609,
+          "event": "single_stage",
+          "thread_id": 27424,
+          "stage": "dispatch",
+          "time": "2026-09-03T03:26:56.488194+00:00",
+          "pid": 29844,
+          "run_mode": "loop"
+        },
+        {
+          "monotonic": 41854.625,
+          "event": "single_stage",
+          "thread_id": 27424,
+          "stage": "wait_load",
+          "time": "2026-09-03T03:26:56.538551+00:00",
+          "pid": 29844,
+          "run_mode": "loop"
+        },
+        {
+          "monotonic": 41854.625,
+          "event": "warp_dispatch_candidate_enter",
+          "thread_id": 27424,
+          "caller_rvas": [
+            "0x2fb9b1",
+            "0x2999666",
+            "0x2daadc",
+            "0x5f800b",
+            "0x5f7d9e"
+          ],
+          "time": "2026-09-03T03:26:56.538551+00:00",
+          "pid": 29844,
+          "run_mode": "loop"
+        },
+        {
+          "monotonic": 41854.625,
+          "event": "warp_dispatch_candidate_return",
+          "thread_id": 27424,
+          "returned_true": true,
+          "time": "2026-09-03T03:26:56.538551+00:00",
+          "pid": 29844,
+          "run_mode": "loop"
+        },
+        {
+          "monotonic": 41944.64,
+          "event": "single_failed",
+          "thread_id": 27424,
+          "reason": "timeout_wait_load",
+          "warps": 0,
+          "scans": 0,
+          "candidate_attempts": 2,
+          "time": "2026-09-03T03:28:26.506814+00:00",
+          "pid": 29844,
+          "run_mode": "loop"
+        }
+      ],
+      "heartbeat_first": {
+        "time": "2026-09-03T03:26:45.450569+00:00",
+        "event": "heartbeat",
+        "pid": 29844,
+        "run_mode": "loop",
+        "automation_stage": "idle",
+        "automated_warps": 0,
+        "automated_scans": 0,
+        "game_foreground": false,
+        "active": false,
+        "paused": false,
+        "stopped": false,
+        "counts": {},
+        "dropped": 0
+      },
+      "heartbeat_last": {
+        "time": "2026-09-03T03:42:35.666105+00:00",
+        "event": "heartbeat",
+        "pid": 29844,
+        "run_mode": "loop",
+        "automation_stage": "failed",
+        "automated_warps": 0,
+        "automated_scans": 0,
+        "game_foreground": false,
+        "active": true,
+        "paused": false,
+        "stopped": false,
+        "counts": {
+          "application_update": 30455,
+          "simulation_update": 30455,
+          "state_change": 1,
+          "warp_capability_check": 6,
+          "warp_capability_status_2": 1,
+          "warp_capability_status_19": 1,
+          "warp_capability_status_1": 4,
+          "warp_candidate_check": 1,
+          "warp_dispatch_candidate_enter": 1,
+          "warp_dispatch_candidate_return": 1
+        },
+        "dropped": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "automatic_single_trial_with_user_confirmation",
+  "source_log": "logs/native-observer.jsonl",
+  "pid": 11316,
+  "started": "2026-09-03T10:49:24.685894+08:00",
+  "completed": "2026-09-03T10:49:35.016712+08:00",
+  "result": {
+    "warps": 1,
+    "scans": 1,
+    "planet_submissions": 6,
+    "candidate_attempts": 1
+  },
+  "total_seconds": 10.312,
+  "local_load_seconds": 8.344,
+  "stage_sequence": [
+    {
+      "monotonic": 39602.828,
+      "stage": "wait_map"
+    },
+    {
+      "monotonic": 39602.828,
+      "stage": "searching"
+    },
+    {
+      "monotonic": 39602.828,
+      "stage": "dispatch"
+    },
+    {
+      "monotonic": 39602.843,
+      "stage": "wait_load"
+    },
+    {
+      "monotonic": 39604.64,
+      "stage": "loading"
+    },
+    {
+      "monotonic": 39612.984,
+      "stage": "wait_scan"
+    },
+    {
+      "monotonic": 39612.984,
+      "stage": "scanning"
+    }
+  ],
+  "states": [
+    {
+      "monotonic": 39603.109,
+      "state": "APPVIEW"
+    },
+    {
+      "monotonic": 39604.609,
+      "state": "APPLOCALLOAD"
+    },
+    {
+      "monotonic": 39612.953,
+      "state": "APPVIEW"
+    }
+  ],
+  "failure_events": [],
+  "heartbeat_drop_max": 0.0,
+  "manual_scanner_interactions": 0,
+  "discovery_submissions": 6,
+  "active_foreground_samples": [
+    {
+      "time": "2026-09-03T10:49:25.440875+08:00",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T10:49:26.447512+08:00",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T10:49:27.456524+08:00",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T10:49:28.46631+08:00",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T10:49:29.474697+08:00",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T10:49:30.481682+08:00",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T10:49:31.490732+08:00",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T10:49:32.497994+08:00",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T10:49:33.506085+08:00",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T10:49:34.512958+08:00",
+      "game_foreground": true
+    }
+  ],
+  "limitations": [
+    "Single foreground run only; automatic map opening, continuous loop and background flow not validated.",
+    "F2/F3 during active automation not validated in this run."
+  ]
+}

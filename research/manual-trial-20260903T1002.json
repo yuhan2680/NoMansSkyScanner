@@ -1,0 +1,215 @@
+{
+  "source": "logs/native-observer.jsonl",
+  "source_sha256": "c35a3c67834112c8012aa9df4fc916028b3f8521e22f298b124663cb4f00c1b8",
+  "session_pid": 19068,
+  "kind": "user_manual_warp_and_scanner_room_calibration",
+  "events": [
+    {
+      "monotonic": 36803.0,
+      "event": "ready",
+      "thread_id": 23104,
+      "time": "2026-09-03T02:02:44.862995+00:00",
+      "pid": 19068
+    },
+    {
+      "monotonic": 36804.765,
+      "event": "started",
+      "thread_id": 27372,
+      "time": "2026-09-03T02:02:46.625671+00:00",
+      "pid": 19068
+    },
+    {
+      "monotonic": 36812.531,
+      "event": "state_change",
+      "thread_id": 26040,
+      "state": "GALAXYMAP",
+      "caller_rvas": [
+        "0x2999641",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e",
+        "0x313ba10"
+      ],
+      "time": "2026-09-03T02:02:54.440336+00:00",
+      "pid": 19068
+    },
+    {
+      "monotonic": 36818.359,
+      "event": "warp_dispatch_candidate_enter",
+      "thread_id": 26040,
+      "caller_rvas": [
+        "0x121e722",
+        "0x2fb9b1",
+        "0x2999666",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e",
+        "0x313ba10"
+      ],
+      "time": "2026-09-03T02:03:00.236912+00:00",
+      "pid": 19068
+    },
+    {
+      "monotonic": 36818.359,
+      "event": "warp_dispatch_candidate_return",
+      "thread_id": 26040,
+      "returned_true": true,
+      "time": "2026-09-03T02:03:00.236912+00:00",
+      "pid": 19068
+    },
+    {
+      "monotonic": 36818.625,
+      "event": "state_change",
+      "thread_id": 26040,
+      "state": "APPVIEW",
+      "caller_rvas": [
+        "0x2999641",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e",
+        "0x313ba10"
+      ],
+      "time": "2026-09-03T02:03:00.489700+00:00",
+      "pid": 19068
+    },
+    {
+      "monotonic": 36820.125,
+      "event": "state_change",
+      "thread_id": 26040,
+      "state": "APPLOCALLOAD",
+      "caller_rvas": [
+        "0x2999641",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e",
+        "0x313ba10"
+      ],
+      "time": "2026-09-03T02:03:01.999548+00:00",
+      "pid": 19068
+    },
+    {
+      "monotonic": 36826.468,
+      "event": "state_change",
+      "thread_id": 26040,
+      "state": "APPVIEW",
+      "caller_rvas": [
+        "0x2999641",
+        "0x2daadc",
+        "0x5f800b",
+        "0x5f7d9e",
+        "0x313ba10"
+      ],
+      "time": "2026-09-03T02:03:08.346427+00:00",
+      "pid": 19068
+    },
+    {
+      "monotonic": 36841.171,
+      "event": "scanner_action",
+      "thread_id": 26972,
+      "time": "2026-09-03T02:03:23.061530+00:00",
+      "pid": 19068
+    },
+    {
+      "monotonic": 36841.171,
+      "event": "discovery_submit",
+      "thread_id": 26972,
+      "caller_rvas": [
+        "0xf8743f",
+        "0xf855ef",
+        "0x13c3f52",
+        "0x12a186b",
+        "0x32ef23",
+        "0x32e34c",
+        "0x29bcd8c"
+      ],
+      "time": "2026-09-03T02:03:23.061530+00:00",
+      "pid": 19068
+    },
+    {
+      "monotonic": 36841.171,
+      "event": "discovery_submit",
+      "thread_id": 26972,
+      "caller_rvas": [
+        "0xf8743f",
+        "0xf855ef",
+        "0x13c3f52",
+        "0x12a186b",
+        "0x32ef23",
+        "0x32e34c",
+        "0x29bcd8c"
+      ],
+      "time": "2026-09-03T02:03:23.061530+00:00",
+      "pid": 19068
+    },
+    {
+      "monotonic": 36841.171,
+      "event": "discovery_submit",
+      "thread_id": 26972,
+      "caller_rvas": [
+        "0xf8743f",
+        "0xf855ef",
+        "0x13c3f52",
+        "0x12a186b",
+        "0x32ef23",
+        "0x32e34c",
+        "0x29bcd8c"
+      ],
+      "time": "2026-09-03T02:03:23.061530+00:00",
+      "pid": 19068
+    },
+    {
+      "monotonic": 36841.171,
+      "event": "discovery_submit",
+      "thread_id": 26972,
+      "caller_rvas": [
+        "0xf8743f",
+        "0xf855ef",
+        "0x13c3f52",
+        "0x12a186b",
+        "0x32ef23",
+        "0x32e34c",
+        "0x29bcd8c"
+      ],
+      "time": "2026-09-03T02:03:23.061530+00:00",
+      "pid": 19068
+    },
+    {
+      "monotonic": 36849.515,
+      "event": "other_interaction",
+      "thread_id": 26972,
+      "time": "2026-09-03T02:03:31.377882+00:00",
+      "pid": 19068
+    },
+    {
+      "monotonic": 36852.843,
+      "event": "stopped",
+      "thread_id": 27372,
+      "counts": {
+        "application_update": 2791,
+        "simulation_update": 2761,
+        "state_change": 4,
+        "warp_capability_check": 105,
+        "warp_capability_status_2": 62,
+        "warp_candidate_check": 102,
+        "warp_capability_status_1": 43,
+        "warp_dispatch_candidate_enter": 1,
+        "warp_dispatch_candidate_return": 1,
+        "scanner_action": 1,
+        "discovery_submit": 4,
+        "other_interaction": 1
+      },
+      "dropped": 0,
+      "time": "2026-09-03T02:03:34.704006+00:00",
+      "pid": 19068
+    }
+  ],
+  "observed_local_load_seconds": 6.343,
+  "observed_dispatch_to_loaded_seconds": 8.109,
+  "warp_requests_observed": 1,
+  "scanner_actions_observed": 1,
+  "scanner_discovery_submissions_observed": 4,
+  "f3_stop_recorded": true,
+  "dropped_events": 0,
+  "automatic_game_function_calls_tested": false,
+  "note": "Warp used thread 26040, scanner interaction used game job thread 26972. Thread IDs are session-specific; use game update phase/call-site checks, not these IDs, for future scheduling."
+}

@@ -1,0 +1,14 @@
+.venv/
+.ruff_cache/
+__pycache__/
+*.py[cod]
+
+logs/
+build/
+dist/
+
+# Local reverse-engineering worktrees and raw disassembly output.
+research/NMS.py/
+research/pyMHF/
+research/mod-scripts/
+research/*disassembly.txt

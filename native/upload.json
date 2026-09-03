@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "mode": "native_upload_all",
+  "default_enabled": false,
+  "settle_seconds": 2.0,
+  "max_pending_records": 100000,
+  "calls": {
+    "upload_all": {
+      "name": "cGcFrontendPageDiscovery::UploadAndRewardAll",
+      "rva": "0x706060",
+      "signature": "48 89 4C 24 08 55 53 56 48 8D 6C 24 B9 48 81 EC 00 01 00 00 48 8B 05 5D ED 43 06 48 8B F1 48 8B 90 E0 B1 2B 00 48 8B 5A 30 8B 43 74 85 C0 0F 84 B5 03 00 00 33 C9 48 89 BC 24 30 01 00 00",
+      "runtime_verified": false,
+      "provenance": "Pinned EXE RTTI UploadAndRewardAll lambda, vtable 0x47BC0D0; sole native call 0x704A65 from UPLOAD_ALL handler. Static void(cGcDiscoveryPageData&). See research/upload-all-disassembly.txt and UPLOAD_FINDINGS.md."
+    }
+  },
+  "layout": {
+    "application_update_caller": "0x5f800b",
+    "frontend_manager": 8566400,
+    "frontend_vtable_rva": "0x479ac40",
+    "frontend_page": 10128,
+    "discovery_page": 2864,
+    "page_reward_total": 27952,
+    "page_reward_hint": 124,
+    "manager_data": 8,
+    "registry": 48,
+    "eligible_count": 116,
+    "eligible_array": 120,
+    "queued_count": 160,
+    "record_pointer": 0,
+    "entry_status": 8,
+    "record_type": 56,
+    "max_record_type": 16,
+    "fsm_pending_state": 24,
+    "empty_state_rva": "0x3266f80"
+  }
+}

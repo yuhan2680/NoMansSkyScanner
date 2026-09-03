@@ -1,0 +1,20 @@
+# Python 3.12 x64 / Windows; official PyPI dependencies
+cyminhook==0.1.6
+iced-x86==1.21.0
+keyboard==0.13.5
+packaging==26.3
+pefile==2023.2.7
+prompt_toolkit==3.0.53
+psutil==5.9.8
+Pymem==1.14.0
+pyMHF==0.2.4
+PyMonCtl==0.92
+pyrun_injected==0.2.0
+pywin32==312
+PyWinBox==0.7
+PyWinCtl==0.4.1
+questionary==2.1.1
+regex==2024.9.11
+tomlkit==0.15.1
+typing_extensions==4.16.0
+wcwidth==0.8.3

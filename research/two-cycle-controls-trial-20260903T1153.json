@@ -1,0 +1,97 @@
+{
+  "source": "logs/native-observer.jsonl",
+  "pid": 16956,
+  "generated": "2026-09-04",
+  "events": [
+    {
+      "time": "2026-09-03T03:53:18.425825+00:00",
+      "monotonic": 43436.562,
+      "event": "ready",
+      "game_foreground": false
+    },
+    {
+      "time": "2026-09-03T03:53:23.414859+00:00",
+      "monotonic": 43441.562,
+      "event": "started",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T03:53:23.414859+00:00",
+      "monotonic": 43441.562,
+      "event": "run_limits",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T03:53:43.526912+00:00",
+      "monotonic": 43461.625,
+      "event": "cycle_completed",
+      "game_foreground": true,
+      "warps": 1,
+      "scans": 1,
+      "planet_submissions": 5,
+      "candidate_attempts": 1
+    },
+    {
+      "time": "2026-09-03T03:53:47.861332+00:00",
+      "monotonic": 43466.0,
+      "event": "paused",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T03:54:01.370329+00:00",
+      "monotonic": 43479.515,
+      "event": "resumed",
+      "game_foreground": true
+    },
+    {
+      "time": "2026-09-03T03:54:16.087306+00:00",
+      "monotonic": 43494.218,
+      "event": "cycle_completed",
+      "game_foreground": true,
+      "warps": 2,
+      "scans": 2,
+      "planet_submissions": 3,
+      "candidate_attempts": 2
+    },
+    {
+      "time": "2026-09-03T03:54:16.087306+00:00",
+      "monotonic": 43494.218,
+      "event": "run_completed",
+      "game_foreground": true,
+      "warps": 2,
+      "scans": 2,
+      "reason": "max_warps"
+    },
+    {
+      "time": "2026-09-03T03:54:27.783158+00:00",
+      "monotonic": 43505.921,
+      "event": "stopped",
+      "game_foreground": true,
+      "counts": {
+        "application_update": 2867,
+        "simulation_update": 2801,
+        "state_change": 8,
+        "warp_capability_check": 11,
+        "warp_capability_status_2": 2,
+        "warp_capability_status_1": 8,
+        "warp_candidate_check": 2,
+        "warp_dispatch_candidate_enter": 2,
+        "warp_dispatch_candidate_return": 2,
+        "discovery_submit": 8,
+        "warp_capability_status_19": 1
+      },
+      "dropped": 0
+    }
+  ],
+  "summary": {
+    "cycle_completed": 2,
+    "failures": 0,
+    "heartbeats": 69,
+    "foreground_values": {
+      "False": 1,
+      "True": 54
+    },
+    "all_action_events_foreground": true,
+    "note": "User reported both cycles successful; log confirms pause/resume and two completed cycles. All action/control events sampled game foreground=true, so this session is not objective background evidence."
+  }
+}
