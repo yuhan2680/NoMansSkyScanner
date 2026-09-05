@@ -6,5 +6,4 @@ if not exist ".venv\Scripts\python.exe" (
   pause
   exit /b 1
 )
-".venv\Scripts\python.exe" -u -X utf8 -m nms_scanner.launcher --loop
-pause
+start "" ".venv\Scripts\pythonw.exe" -X utf8 -m nms_scanner.gui

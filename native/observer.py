@@ -34,6 +34,7 @@ if str(ROOT) not in sys.path:
 
 from nms_scanner import __version__  # noqa: E402
 from nms_scanner.compatibility import apply_run_limits, load_profile, validate  # noqa: E402
+from nms_scanner.control_channel import CommandTail  # noqa: E402
 from nms_scanner.controls import SessionControls  # noqa: E402
 from nms_scanner.native_windows import (  # noqa: E402
     Hotkeys,
@@ -110,7 +111,7 @@ class NativeObserver(Mod):
         self.worker.start()
 
     def _worker(self):
-        keys, handler = None, None
+        keys, handler, commands = None, None, None
         logger = logging.getLogger("nms-scanner-observer")
         logger.propagate = False
         logger.setLevel(logging.INFO)
@@ -126,10 +127,17 @@ class NativeObserver(Mod):
             handler.setFormatter(logging.Formatter("%(message)s"))
             logger.addHandler(handler)
             keys = Hotkeys(PROFILE["hotkeys"])
+            control_file = _internal.CONFIG.get("control_file")
+            control_token = _internal.CONFIG.get("control_token")
+            if control_file and control_token:
+                commands = CommandTail(Path(control_file), control_token)
             next_summary = time.monotonic()
             while True:
                 for action in keys.poll():
                     self.controls.handle(action)
+                if commands:
+                    for action in commands.poll():
+                        self.controls.handle(action)
                 if self.single:
                     self.single.poll()
                 for item in self.telemetry.drain():
@@ -154,7 +162,8 @@ class NativeObserver(Mod):
                                 "automated_warps": self.single.warps if self.single else 0,
                                 "automated_scans": self.single.scans if self.single else 0,
                                 "auto_upload_enabled": self.single.auto_upload.is_set()
-                                if self.single else False,
+                                if self.single
+                                else False,
                                 "upload_batches": self.single.upload_batches if self.single else 0,
                                 "upload_records": self.single.upload_records if self.single else 0,
                                 "game_foreground": foreground_pid() == os.getpid(),

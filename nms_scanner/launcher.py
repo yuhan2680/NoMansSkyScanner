@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import socket
 import sys
 from datetime import UTC, datetime
@@ -64,9 +65,7 @@ def executor_port_available():
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description=f"无人深空原生自动探索器 {__version__}"
-    )
+    parser = argparse.ArgumentParser(description=f"无人深空原生自动探索器 {__version__}")
     parser.add_argument("--exe", type=Path, help="离线核查用的 NMS.exe 路径")
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--observe", action="store_true", help="加载实验性观察探针到已运行的游戏")
@@ -78,6 +77,8 @@ def main():
     parser.add_argument(
         "--max-runtime-seconds", type=float, help="循环模式最长时间，含暂停；0 为不限"
     )
+    parser.add_argument("--control-file", type=Path, help=argparse.SUPPRESS)
+    parser.add_argument("--control-token", help=argparse.SUPPRESS)
     args = parser.parse_args()
     root = Path(__file__).resolve().parent.parent
     phase, pid = "locate_game", None
@@ -100,6 +101,19 @@ def main():
             raise ValueError("观察模式通过进程身份确定路径，不接受 --exe。")
         if run_limits and not args.loop:
             raise ValueError("运行上限参数只适用于 --loop 模式。")
+        if bool(args.control_file) != bool(args.control_token):
+            raise ValueError("UI 控制文件和会话令牌必须同时提供。")
+        if args.control_file:
+            if not args.loop:
+                raise ValueError("UI 控制只适用于循环模式。")
+            log_root = (root / "logs").resolve()
+            control_file = args.control_file.resolve()
+            try:
+                control_file.relative_to(log_root)
+            except ValueError as error:
+                raise ValueError("UI 控制文件必须位于本程序 logs 目录。") from error
+            if not re.fullmatch(r"[0-9a-f]{32}", args.control_token):
+                raise ValueError("UI 会话令牌格式无效。")
         automatic = args.single or args.loop
         attach = args.observe or (automatic and not args.exe)
         process = running_game() if attach or not args.exe else None
@@ -155,9 +169,7 @@ def main():
             print("F1 启动、暂停或继续；F2 开关自动上传（默认关闭）；F3 阻止后续动作。")
             print("此模式已有一次前台成功记录；已经发起的跃迁不能由 F3 撤销。")
         else:
-            print(
-                "观察探针将加载到测试存档，请确保已备份。F1 开始、暂停或继续记录，F3 停止记录。"
-            )
+            print("观察探针将加载到测试存档，请确保已备份。F1 开始、暂停或继续记录，F3 停止记录。")
             print("本探针不自动执行游戏操作。")
         print("退出游戏才能完全卸载钩子和运行时。")
         from prompt_toolkit.application import create_app_session
@@ -182,6 +194,8 @@ def main():
                     "expected_pid": process.pid,
                     "run_mode": run_mode,
                     "run_limits": run_limits,
+                    "control_file": str(control_file) if args.control_file else None,
+                    "control_token": args.control_token,
                     "start_exe": False,
                     "start_paused": False,
                     "interactive_console": False,
