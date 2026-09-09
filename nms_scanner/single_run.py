@@ -94,8 +94,12 @@ class SingleRun:
 
     def _scan_finished(self):
         self.scans += 1
-        self.emit("scan_completed", warps=self.warps, scans=self.scans,
-                  planet_submissions=self.planet_count)
+        self.emit(
+            "scan_completed",
+            warps=self.warps,
+            scans=self.scans,
+            planet_submissions=self.planet_count,
+        )
         if self.auto_upload.is_set():
             self.upload_delay = self.config["upload_settle_seconds"]
             self._set_stage("wait_upload")
@@ -126,9 +130,12 @@ class SingleRun:
         if count:
             self.upload_batches += 1
             self.upload_records += count
-        self.emit("upload_queued" if count else "upload_nothing_pending",
-                  records=count, upload_batches=self.upload_batches,
-                  upload_records=self.upload_records)
+        self.emit(
+            "upload_queued" if count else "upload_nothing_pending",
+            records=count,
+            upload_batches=self.upload_batches,
+            upload_records=self.upload_records,
+        )
         self._complete_cycle()
         return True
 
@@ -224,14 +231,46 @@ class SingleRun:
                         self._notice_map_wait()
                     if chosen is not None:
                         self.attempts += 1
+                        details = getattr(self.engine, "candidate_classification", None)
+                        if details:
+                            self.emit(
+                                "star_filter_candidate",
+                                **details,
+                                selected=False,
+                                pending_confirmation=bool(chosen),
+                                attempts=self.attempts,
+                                filtered_out=self.engine.filter_rejections,
+                            )
                     if chosen:
                         self._set_stage("dispatch")
                     elif self.attempts >= self.config["max_candidate_attempts"]:
-                        self._fail("no_reachable_candidate")
+                        enabled = getattr(
+                            getattr(self.engine, "star_filter", None), "enabled", False
+                        )
+                        self._fail("no_matching_candidate" if enabled else "no_reachable_candidate")
                 elif self.stage == "dispatch":
                     self.checkpoint()
                     if not self.engine.selection_ready(context):
                         self._notice_map_wait()
+                        return
+                    matches = self.engine.selection_matches(context)
+                    if matches is None:
+                        self._notice_map_wait()
+                        return
+                    details = getattr(self.engine, "candidate_classification", None)
+                    if details:
+                        self.emit(
+                            "star_filter_verified",
+                            **details,
+                            selected=matches,
+                            attempts=self.attempts,
+                            filtered_out=self.engine.filter_rejections,
+                        )
+                    if not matches:
+                        if self.attempts >= self.config["max_candidate_attempts"]:
+                            self._fail("no_matching_candidate")
+                        else:
+                            self._set_stage("searching")
                         return
                     self._notice_map_ready()
                     # Arm loading observation before dispatch in case transition is synchronous.

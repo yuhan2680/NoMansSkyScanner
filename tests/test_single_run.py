@@ -13,6 +13,7 @@ from unittest.mock import Mock, patch
 from nms_scanner.native_single import AlignedBuffer, NativeSingleEngine, resolve_application
 from nms_scanner.runtime_bootstrap import bootstrap_script
 from nms_scanner.single_run import ActionInterrupted, NativePreconditionError, SingleRun
+from nms_scanner.star_filter import StarFilter
 
 
 class FakeEngine:
@@ -30,6 +31,9 @@ class FakeEngine:
         return True
 
     def selection_ready(self, context):
+        return True
+
+    def selection_matches(self, context):
         return True
 
     def choose(self, context):
@@ -285,6 +289,13 @@ class NativeSequenceTests(unittest.TestCase):
         layout = trial["layout"]
         engine = NativeSingleEngine.__new__(NativeSingleEngine)
         engine.layout, engine.profile = layout, profile
+        engine.star_filter = StarFilter()
+        profile["star_filter"] = json.loads(
+            (root / "native/star_filter.json").read_text(encoding="utf-8")
+        )
+        engine.star_filter_layout = profile["star_filter"]["layout"]
+        engine.filter_target, engine.filter_rejections = None, 0
+        engine.candidate_classification = None
         engine.application, engine.map_object = 0x10000, None
         engine.expected_system = None
         engine.map_first_clock = engine.map_last_clock = engine.selection_clock = None

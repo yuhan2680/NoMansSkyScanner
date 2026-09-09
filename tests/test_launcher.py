@@ -7,6 +7,7 @@ from types import SimpleNamespace
 from unittest.mock import Mock, patch
 
 from nms_scanner import launcher
+from nms_scanner.star_filter import StarFilter
 
 
 class LauncherFailureTests(unittest.TestCase):
@@ -25,7 +26,28 @@ class LauncherFailureTests(unittest.TestCase):
                 patch.object(launcher, "__file__", str(root / "nms_scanner/launcher.py")),
                 patch(
                     "sys.argv",
-                    ["launcher", "--loop", "--max-warps", "2", "--max-runtime-seconds", "180"],
+                    [
+                        "launcher",
+                        "--loop",
+                        "--max-warps",
+                        "2",
+                        "--max-runtime-seconds",
+                        "180",
+                        "--star-filter-enabled",
+                        "--star-letters",
+                        "O",
+                        "X",
+                        "--system-types",
+                        "pirate",
+                        "--star-digits",
+                        "6",
+                        "--star-suffixes",
+                        "none",
+                        "--system-tags",
+                        "water",
+                        "--system-races",
+                        "gek",
+                    ],
                 ),
                 patch.object(launcher, "running_game", return_value=process),
                 patch.object(launcher, "load_profile", return_value=profile),
@@ -44,6 +66,13 @@ class LauncherFailureTests(unittest.TestCase):
             self.assertEqual(config["run_mode"], "loop")
             self.assertEqual(config["run_limits"], {"max_warps": 2, "max_runtime_seconds": 180})
             self.assertEqual(config["expected_pid"], 1234)
+            self.assertEqual(
+                config["star_filter"],
+                StarFilter(
+                    True, ("O", "X"), ("pirate",), ("6",), ("none",), ("water",), ("gek",)
+                ).as_dict(),
+            )
+            self.assertEqual(profile["single_trial"]["max_candidate_attempts"], 256)
 
     def test_duplicate_runtime_is_logged_without_second_attach(self):
         process = SimpleNamespace(

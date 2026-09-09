@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "default_enabled": false,
+  "max_candidate_attempts": 256,
+  "layout": {
+    "attributes_size": 48,
+    "star_type_offset": 16,
+    "race_offset": 12,
+    "abandoned_offset": 36,
+    "pirate_offset": 37,
+    "empty_race": 7,
+    "populated_races": [
+      0,
+      1,
+      2
+    ],
+    "star_types": {
+      "0": "yellow",
+      "1": "green",
+      "2": "blue",
+      "3": "red",
+      "4": "purple"
+    }
+  },
+  "panel": {
+    "map_offset": 8640,
+    "query_offset": 1488,
+    "rendered_query_offset": 1472,
+    "star_type_offset": 2636,
+    "flags_offset": 2688
+  }
+}

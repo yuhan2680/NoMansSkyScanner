@@ -1,0 +1,249 @@
+{
+  "program_version": "1.1.1-rc2",
+  "pid": 19640,
+  "start": "2026-09-08T23:23:33.977530+00:00",
+  "end": "2026-09-08T23:29:18.354407+00:00",
+  "source_log_sha256": "8bd4a5476ab6f6211ed8c14450707c877f0b76b6fd711c522a946aa4c10dc72c",
+  "filter": {
+    "letters": [
+      "F",
+      "G"
+    ],
+    "digits": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "suffixes": [
+      "none",
+      "p",
+      "f",
+      "pf"
+    ],
+    "categories": [
+      "normal"
+    ],
+    "tags": [
+      "water",
+      "gas_giant"
+    ],
+    "races": [
+      "korvax"
+    ]
+  },
+  "accepted": 10,
+  "accepted_codes": [
+    "G4f",
+    "G4f",
+    "F4",
+    "F5pf",
+    "F5pf",
+    "F6",
+    "F4f",
+    "F4f",
+    "F6f",
+    "G5"
+  ],
+  "accepted_tags": {
+    "water": 10
+  },
+  "accepted_races": {
+    "korvax": 10
+  },
+  "filter_violations": 0,
+  "late_rejected_tags": [
+    "none"
+  ],
+  "completed_warps": 10,
+  "completed_scans": 10,
+  "planet_submissions": 48,
+  "candidate_attempts": 152,
+  "none_race_candidates": 19,
+  "errors": [],
+  "dropped": 0,
+  "stop_reason": "stop_requested",
+  "foreground_warps": {
+    "True": 10
+  },
+  "none_race_candidate_details": [
+    {
+      "sequence": 1,
+      "local_time": "07:23:44",
+      "spectrum": "M1f",
+      "color": "red",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 2,
+      "local_time": "07:23:44",
+      "spectrum": "X2pf",
+      "color": "purple",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 3,
+      "local_time": "07:24:06",
+      "spectrum": "Y5",
+      "color": "purple",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 4,
+      "local_time": "07:24:06",
+      "spectrum": "O5p",
+      "color": "blue",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 5,
+      "local_time": "07:24:06",
+      "spectrum": "M6p",
+      "color": "red",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 6,
+      "local_time": "07:24:51",
+      "spectrum": "M4",
+      "color": "red",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 7,
+      "local_time": "07:24:52",
+      "spectrum": "X2pf",
+      "color": "purple",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 8,
+      "local_time": "07:24:52",
+      "spectrum": "X2pf",
+      "color": "purple",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 9,
+      "local_time": "07:26:27",
+      "spectrum": "Y5f",
+      "color": "purple",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 10,
+      "local_time": "07:26:27",
+      "spectrum": "M1p",
+      "color": "red",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 11,
+      "local_time": "07:26:27",
+      "spectrum": "B3p",
+      "color": "blue",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 12,
+      "local_time": "07:26:27",
+      "spectrum": "M1p",
+      "color": "red",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 13,
+      "local_time": "07:26:27",
+      "spectrum": "X2pf",
+      "color": "purple",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 14,
+      "local_time": "07:27:37",
+      "spectrum": "Y7p",
+      "color": "purple",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 15,
+      "local_time": "07:27:37",
+      "spectrum": "M0p",
+      "color": "red",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 16,
+      "local_time": "07:27:56",
+      "spectrum": "M3f",
+      "color": "red",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 17,
+      "local_time": "07:27:56",
+      "spectrum": "M5f",
+      "color": "red",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 18,
+      "local_time": "07:27:57",
+      "spectrum": "B3f",
+      "color": "blue",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    },
+    {
+      "sequence": 19,
+      "local_time": "07:27:58",
+      "spectrum": "M1pf",
+      "color": "red",
+      "category": "empty",
+      "race": "none",
+      "selected": false
+    }
+  ],
+  "upload_batches": 4,
+  "upload_records_locally_queued": 39,
+  "limitations": [
+    "19 条无主导种族候选记录不保证互异；日志不含星系名称或坐标。",
+    "全部选中目标显示水，未验收气态巨行星标签；光谱后缀全选，没有验收仅限某一后缀。",
+    "关键跃迁均在前台；提交记录数不证明退出后持久化或线上接收。"
+  ]
+}

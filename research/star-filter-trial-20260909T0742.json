@@ -1,0 +1,862 @@
+{
+  "program_version": "1.1.1-rc3",
+  "pid": 23224,
+  "source_log": "dist/NoMansSkyScanner-v1.1.1-rc3-NMS170671/logs/native-observer.jsonl",
+  "source_log_sha256": "a4017866ee882c53accba6c2255ae85445c3e599025eacc764aee583c045e7e6",
+  "start": "2026-09-08T23:42:55.669182+00:00",
+  "end": "2026-09-09T00:07:25.006439+00:00",
+  "start_local": "2026-09-09T07:42:55.669182+08:00",
+  "end_local": "2026-09-09T08:07:25.006439+08:00",
+  "duration_seconds": 1469.337,
+  "filter": {
+    "enabled": true,
+    "letters": [
+      "F",
+      "G",
+      "M",
+      "K",
+      "E",
+      "O"
+    ],
+    "digits": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "suffixes": [
+      "p",
+      "f",
+      "pf"
+    ],
+    "categories": [
+      "pirate",
+      "abandoned",
+      "empty"
+    ],
+    "tags": [
+      "water",
+      "dissonant",
+      "gas_giant"
+    ],
+    "races": [
+      "gek",
+      "vykeen",
+      "korvax",
+      "none"
+    ]
+  },
+  "accepted": 71,
+  "accepted_distributions": {
+    "letter": {
+      "M": 12,
+      "F": 7,
+      "O": 13,
+      "G": 13,
+      "E": 10,
+      "K": 16
+    },
+    "digit": {
+      "4": 6,
+      "1": 4,
+      "5": 4,
+      "7": 6,
+      "9": 12,
+      "0": 4,
+      "3": 8,
+      "6": 8,
+      "2": 9,
+      "8": 10
+    },
+    "suffix": {
+      "f": 18,
+      "pf": 32,
+      "p": 21
+    },
+    "category": {
+      "empty": 46,
+      "pirate": 25
+    },
+    "tag": {
+      "water": 56,
+      "dissonant": 15
+    },
+    "race": {
+      "none": 46,
+      "gek": 7,
+      "korvax": 11,
+      "vykeen": 7
+    }
+  },
+  "filter_violations": [],
+  "late_rejected_tags": {
+    "none": 12
+  },
+  "completed_warps": 71,
+  "completed_scans": 71,
+  "planet_submissions": 297,
+  "candidate_attempts": 948,
+  "classified_candidate_events": 946,
+  "max_candidate_attempts_per_cycle": 51,
+  "cycle_integrity_checks_passed": true,
+  "errors": [],
+  "dropped": 0,
+  "paused_local": "2026-09-09T08:07:03.129139+08:00",
+  "actions_after_pause": 0,
+  "stop_reason": "stop_requested",
+  "auto_upload_ever_enabled": false,
+  "upload_batches": 0,
+  "upload_records": 0,
+  "foreground_warps": {
+    "True": 71
+  },
+  "foreground_planet_submissions": {
+    "True": 297
+  },
+  "event_counts": {
+    "ready": 1,
+    "star_filter_settings": 1,
+    "heartbeat": 1450,
+    "started": 1,
+    "single_stage": 665,
+    "run_limits": 1,
+    "state_change": 284,
+    "map_waiting": 241,
+    "map_ready": 142,
+    "star_filter_candidate": 946,
+    "star_filter_verified": 83,
+    "warp_dispatch_candidate_enter": 71,
+    "warp_dispatch_candidate_return": 71,
+    "discovery_submit": 297,
+    "scan_completed": 71,
+    "cycle_completed": 71,
+    "paused": 1,
+    "stopped": 1,
+    "run_stopped": 1
+  },
+  "limitations": [
+    "Discovery submission and completed-cycle logs do not independently verify discovery-page display, save persistence, or online server acceptance.",
+    "All warp and scan actions were foreground; this run does not validate background execution.",
+    "All races and digits were enabled; exclusion of individual races or digits was not exercised.",
+    "No accepted abandoned-category or gas_giant-tag target occurred in this run.",
+    "Candidate attempts are not guaranteed to represent distinct systems; no names or coordinates were stored."
+  ],
+  "cycles": [
+    {
+      "cycle": 1,
+      "completed_local": "2026-09-09T07:43:12.686435+08:00",
+      "spectrum": "M4f",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 2,
+      "candidate_attempts": 28
+    },
+    {
+      "cycle": 2,
+      "completed_local": "2026-09-09T07:43:30.101649+08:00",
+      "spectrum": "M1pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 6,
+      "candidate_attempts": 13
+    },
+    {
+      "cycle": 3,
+      "completed_local": "2026-09-09T07:43:50.098590+08:00",
+      "spectrum": "F5pf",
+      "category": "pirate",
+      "race": "gek",
+      "tag": "water",
+      "planet_submissions": 4,
+      "candidate_attempts": 1
+    },
+    {
+      "cycle": 4,
+      "completed_local": "2026-09-09T07:44:07.571265+08:00",
+      "spectrum": "O4pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "dissonant",
+      "planet_submissions": 3,
+      "candidate_attempts": 51
+    },
+    {
+      "cycle": 5,
+      "completed_local": "2026-09-09T07:44:26.861583+08:00",
+      "spectrum": "G5p",
+      "category": "pirate",
+      "race": "korvax",
+      "tag": "dissonant",
+      "planet_submissions": 3,
+      "candidate_attempts": 3
+    },
+    {
+      "cycle": 6,
+      "completed_local": "2026-09-09T07:44:44.473732+08:00",
+      "spectrum": "E7p",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 6,
+      "candidate_attempts": 11
+    },
+    {
+      "cycle": 7,
+      "completed_local": "2026-09-09T07:45:01.739857+08:00",
+      "spectrum": "K9f",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 4,
+      "candidate_attempts": 16
+    },
+    {
+      "cycle": 8,
+      "completed_local": "2026-09-09T07:45:23.010250+08:00",
+      "spectrum": "G0pf",
+      "category": "pirate",
+      "race": "korvax",
+      "tag": "water",
+      "planet_submissions": 4,
+      "candidate_attempts": 16
+    },
+    {
+      "cycle": 9,
+      "completed_local": "2026-09-09T07:45:40.781721+08:00",
+      "spectrum": "M9p",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 6,
+      "candidate_attempts": 15
+    },
+    {
+      "cycle": 10,
+      "completed_local": "2026-09-09T07:45:58.358366+08:00",
+      "spectrum": "K3pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 6,
+      "candidate_attempts": 6
+    },
+    {
+      "cycle": 11,
+      "completed_local": "2026-09-09T07:46:16.393229+08:00",
+      "spectrum": "K1p",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 6,
+      "candidate_attempts": 37
+    },
+    {
+      "cycle": 12,
+      "completed_local": "2026-09-09T07:46:34.881646+08:00",
+      "spectrum": "F6f",
+      "category": "pirate",
+      "race": "gek",
+      "tag": "water",
+      "planet_submissions": 2,
+      "candidate_attempts": 3
+    },
+    {
+      "cycle": 13,
+      "completed_local": "2026-09-09T07:46:53.566251+08:00",
+      "spectrum": "M2pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 3,
+      "candidate_attempts": 51
+    },
+    {
+      "cycle": 14,
+      "completed_local": "2026-09-09T07:47:12.150863+08:00",
+      "spectrum": "G9pf",
+      "category": "pirate",
+      "race": "korvax",
+      "tag": "water",
+      "planet_submissions": 2,
+      "candidate_attempts": 4
+    },
+    {
+      "cycle": 15,
+      "completed_local": "2026-09-09T07:47:30.983275+08:00",
+      "spectrum": "K4f",
+      "category": "empty",
+      "race": "none",
+      "tag": "dissonant",
+      "planet_submissions": 6,
+      "candidate_attempts": 20
+    },
+    {
+      "cycle": 16,
+      "completed_local": "2026-09-09T07:47:49.686082+08:00",
+      "spectrum": "K0pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 6,
+      "candidate_attempts": 6
+    },
+    {
+      "cycle": 17,
+      "completed_local": "2026-09-09T07:48:10.751758+08:00",
+      "spectrum": "O9f",
+      "category": "empty",
+      "race": "none",
+      "tag": "dissonant",
+      "planet_submissions": 6,
+      "candidate_attempts": 7
+    },
+    {
+      "cycle": 18,
+      "completed_local": "2026-09-09T07:48:34.555502+08:00",
+      "spectrum": "F8p",
+      "category": "pirate",
+      "race": "vykeen",
+      "tag": "dissonant",
+      "planet_submissions": 5,
+      "candidate_attempts": 16
+    },
+    {
+      "cycle": 19,
+      "completed_local": "2026-09-09T07:48:54.512171+08:00",
+      "spectrum": "E3pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 6,
+      "candidate_attempts": 3
+    },
+    {
+      "cycle": 20,
+      "completed_local": "2026-09-09T07:49:17.204330+08:00",
+      "spectrum": "E2f",
+      "category": "pirate",
+      "race": "korvax",
+      "tag": "water",
+      "planet_submissions": 3,
+      "candidate_attempts": 15
+    },
+    {
+      "cycle": 21,
+      "completed_local": "2026-09-09T07:49:37.210014+08:00",
+      "spectrum": "K8p",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 5,
+      "candidate_attempts": 15
+    },
+    {
+      "cycle": 22,
+      "completed_local": "2026-09-09T07:49:56.662365+08:00",
+      "spectrum": "O4f",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 3,
+      "candidate_attempts": 14
+    },
+    {
+      "cycle": 23,
+      "completed_local": "2026-09-09T07:50:19.660796+08:00",
+      "spectrum": "O9pf",
+      "category": "pirate",
+      "race": "vykeen",
+      "tag": "water",
+      "planet_submissions": 5,
+      "candidate_attempts": 2
+    },
+    {
+      "cycle": 24,
+      "completed_local": "2026-09-09T07:50:40.677170+08:00",
+      "spectrum": "F6f",
+      "category": "pirate",
+      "race": "gek",
+      "tag": "water",
+      "planet_submissions": 2,
+      "candidate_attempts": 3
+    },
+    {
+      "cycle": 25,
+      "completed_local": "2026-09-09T07:51:02.002875+08:00",
+      "spectrum": "K3pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 6,
+      "candidate_attempts": 23
+    },
+    {
+      "cycle": 26,
+      "completed_local": "2026-09-09T07:51:23.580077+08:00",
+      "spectrum": "G5p",
+      "category": "pirate",
+      "race": "gek",
+      "tag": "water",
+      "planet_submissions": 3,
+      "candidate_attempts": 6
+    },
+    {
+      "cycle": 27,
+      "completed_local": "2026-09-09T07:51:45.204547+08:00",
+      "spectrum": "G9f",
+      "category": "pirate",
+      "race": "vykeen",
+      "tag": "dissonant",
+      "planet_submissions": 3,
+      "candidate_attempts": 8
+    },
+    {
+      "cycle": 28,
+      "completed_local": "2026-09-09T07:52:08.197335+08:00",
+      "spectrum": "O8p",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 6,
+      "candidate_attempts": 27
+    },
+    {
+      "cycle": 29,
+      "completed_local": "2026-09-09T07:52:28.615618+08:00",
+      "spectrum": "E6p",
+      "category": "empty",
+      "race": "none",
+      "tag": "dissonant",
+      "planet_submissions": 6,
+      "candidate_attempts": 1
+    },
+    {
+      "cycle": 30,
+      "completed_local": "2026-09-09T07:52:48.933291+08:00",
+      "spectrum": "K8pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 5,
+      "candidate_attempts": 22
+    },
+    {
+      "cycle": 31,
+      "completed_local": "2026-09-09T07:53:09.145143+08:00",
+      "spectrum": "O3f",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 5,
+      "candidate_attempts": 19
+    },
+    {
+      "cycle": 32,
+      "completed_local": "2026-09-09T07:53:28.292030+08:00",
+      "spectrum": "O6p",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 3,
+      "candidate_attempts": 14
+    },
+    {
+      "cycle": 33,
+      "completed_local": "2026-09-09T07:53:48.393591+08:00",
+      "spectrum": "E6p",
+      "category": "empty",
+      "race": "none",
+      "tag": "dissonant",
+      "planet_submissions": 6,
+      "candidate_attempts": 12
+    },
+    {
+      "cycle": 34,
+      "completed_local": "2026-09-09T07:54:08.109236+08:00",
+      "spectrum": "M2p",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 4,
+      "candidate_attempts": 12
+    },
+    {
+      "cycle": 35,
+      "completed_local": "2026-09-09T07:54:29.226583+08:00",
+      "spectrum": "G9pf",
+      "category": "pirate",
+      "race": "korvax",
+      "tag": "water",
+      "planet_submissions": 2,
+      "candidate_attempts": 13
+    },
+    {
+      "cycle": 36,
+      "completed_local": "2026-09-09T07:54:49.639634+08:00",
+      "spectrum": "M8pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 6,
+      "candidate_attempts": 24
+    },
+    {
+      "cycle": 37,
+      "completed_local": "2026-09-09T07:55:10.663461+08:00",
+      "spectrum": "G9pf",
+      "category": "pirate",
+      "race": "korvax",
+      "tag": "water",
+      "planet_submissions": 2,
+      "candidate_attempts": 11
+    },
+    {
+      "cycle": 38,
+      "completed_local": "2026-09-09T07:55:33.666089+08:00",
+      "spectrum": "M2p",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 2,
+      "candidate_attempts": 21
+    },
+    {
+      "cycle": 39,
+      "completed_local": "2026-09-09T07:55:53.472447+08:00",
+      "spectrum": "M2pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 3,
+      "candidate_attempts": 3
+    },
+    {
+      "cycle": 40,
+      "completed_local": "2026-09-09T07:56:14.539551+08:00",
+      "spectrum": "G9pf",
+      "category": "pirate",
+      "race": "korvax",
+      "tag": "water",
+      "planet_submissions": 2,
+      "candidate_attempts": 13
+    },
+    {
+      "cycle": 41,
+      "completed_local": "2026-09-09T07:56:34.418822+08:00",
+      "spectrum": "M2pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 3,
+      "candidate_attempts": 23
+    },
+    {
+      "cycle": 42,
+      "completed_local": "2026-09-09T07:56:54.931382+08:00",
+      "spectrum": "F6f",
+      "category": "pirate",
+      "race": "gek",
+      "tag": "water",
+      "planet_submissions": 2,
+      "candidate_attempts": 1
+    },
+    {
+      "cycle": 43,
+      "completed_local": "2026-09-09T07:57:15.699405+08:00",
+      "spectrum": "G9pf",
+      "category": "pirate",
+      "race": "korvax",
+      "tag": "water",
+      "planet_submissions": 2,
+      "candidate_attempts": 8
+    },
+    {
+      "cycle": 44,
+      "completed_local": "2026-09-09T07:57:35.757546+08:00",
+      "spectrum": "K8f",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 6,
+      "candidate_attempts": 15
+    },
+    {
+      "cycle": 45,
+      "completed_local": "2026-09-09T07:58:00.374522+08:00",
+      "spectrum": "O6p",
+      "category": "pirate",
+      "race": "vykeen",
+      "tag": "water",
+      "planet_submissions": 6,
+      "candidate_attempts": 40
+    },
+    {
+      "cycle": 46,
+      "completed_local": "2026-09-09T07:58:22.708591+08:00",
+      "spectrum": "G8f",
+      "category": "pirate",
+      "race": "gek",
+      "tag": "water",
+      "planet_submissions": 4,
+      "candidate_attempts": 1
+    },
+    {
+      "cycle": 47,
+      "completed_local": "2026-09-09T07:58:42.766383+08:00",
+      "spectrum": "E6p",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 6,
+      "candidate_attempts": 6
+    },
+    {
+      "cycle": 48,
+      "completed_local": "2026-09-09T07:59:04.804572+08:00",
+      "spectrum": "K3pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 2,
+      "candidate_attempts": 23
+    },
+    {
+      "cycle": 49,
+      "completed_local": "2026-09-09T07:59:24.003255+08:00",
+      "spectrum": "K7f",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 3,
+      "candidate_attempts": 4
+    },
+    {
+      "cycle": 50,
+      "completed_local": "2026-09-09T07:59:42.955255+08:00",
+      "spectrum": "K3pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 2,
+      "candidate_attempts": 23
+    },
+    {
+      "cycle": 51,
+      "completed_local": "2026-09-09T08:00:03.017032+08:00",
+      "spectrum": "M0pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "dissonant",
+      "planet_submissions": 6,
+      "candidate_attempts": 17
+    },
+    {
+      "cycle": 52,
+      "completed_local": "2026-09-09T08:00:22.167844+08:00",
+      "spectrum": "E3f",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 3,
+      "candidate_attempts": 14
+    },
+    {
+      "cycle": 53,
+      "completed_local": "2026-09-09T08:00:46.679125+08:00",
+      "spectrum": "G2p",
+      "category": "pirate",
+      "race": "korvax",
+      "tag": "dissonant",
+      "planet_submissions": 6,
+      "candidate_attempts": 18
+    },
+    {
+      "cycle": 54,
+      "completed_local": "2026-09-09T08:01:06.535871+08:00",
+      "spectrum": "K4pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "dissonant",
+      "planet_submissions": 4,
+      "candidate_attempts": 20
+    },
+    {
+      "cycle": 55,
+      "completed_local": "2026-09-09T08:01:26.291070+08:00",
+      "spectrum": "O9f",
+      "category": "empty",
+      "race": "none",
+      "tag": "dissonant",
+      "planet_submissions": 6,
+      "candidate_attempts": 20
+    },
+    {
+      "cycle": 56,
+      "completed_local": "2026-09-09T08:01:51.207512+08:00",
+      "spectrum": "E5pf",
+      "category": "pirate",
+      "race": "gek",
+      "tag": "water",
+      "planet_submissions": 6,
+      "candidate_attempts": 3
+    },
+    {
+      "cycle": 57,
+      "completed_local": "2026-09-09T08:02:13.598557+08:00",
+      "spectrum": "F8f",
+      "category": "pirate",
+      "race": "vykeen",
+      "tag": "water",
+      "planet_submissions": 4,
+      "candidate_attempts": 12
+    },
+    {
+      "cycle": 58,
+      "completed_local": "2026-09-09T08:02:37.006171+08:00",
+      "spectrum": "O9pf",
+      "category": "pirate",
+      "race": "vykeen",
+      "tag": "dissonant",
+      "planet_submissions": 5,
+      "candidate_attempts": 20
+    },
+    {
+      "cycle": 59,
+      "completed_local": "2026-09-09T08:02:57.418165+08:00",
+      "spectrum": "K4pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 5,
+      "candidate_attempts": 16
+    },
+    {
+      "cycle": 60,
+      "completed_local": "2026-09-09T08:03:18.739337+08:00",
+      "spectrum": "G7f",
+      "category": "pirate",
+      "race": "korvax",
+      "tag": "water",
+      "planet_submissions": 2,
+      "candidate_attempts": 14
+    },
+    {
+      "cycle": 61,
+      "completed_local": "2026-09-09T08:03:38.445726+08:00",
+      "spectrum": "M1p",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 4,
+      "candidate_attempts": 10
+    },
+    {
+      "cycle": 62,
+      "completed_local": "2026-09-09T08:03:57.287362+08:00",
+      "spectrum": "E0p",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 3,
+      "candidate_attempts": 1
+    },
+    {
+      "cycle": 63,
+      "completed_local": "2026-09-09T08:04:16.729199+08:00",
+      "spectrum": "O3pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "dissonant",
+      "planet_submissions": 6,
+      "candidate_attempts": 5
+    },
+    {
+      "cycle": 64,
+      "completed_local": "2026-09-09T08:04:36.740112+08:00",
+      "spectrum": "E8pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "dissonant",
+      "planet_submissions": 6,
+      "candidate_attempts": 14
+    },
+    {
+      "cycle": 65,
+      "completed_local": "2026-09-09T08:04:55.889551+08:00",
+      "spectrum": "M7p",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 2,
+      "candidate_attempts": 2
+    },
+    {
+      "cycle": 66,
+      "completed_local": "2026-09-09T08:05:14.530443+08:00",
+      "spectrum": "K2pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 2,
+      "candidate_attempts": 7
+    },
+    {
+      "cycle": 67,
+      "completed_local": "2026-09-09T08:05:37.782918+08:00",
+      "spectrum": "G8pf",
+      "category": "pirate",
+      "race": "vykeen",
+      "tag": "water",
+      "planet_submissions": 4,
+      "candidate_attempts": 8
+    },
+    {
+      "cycle": 68,
+      "completed_local": "2026-09-09T08:05:56.933206+08:00",
+      "spectrum": "K2pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 2,
+      "candidate_attempts": 8
+    },
+    {
+      "cycle": 69,
+      "completed_local": "2026-09-09T08:06:22.100269+08:00",
+      "spectrum": "F1p",
+      "category": "pirate",
+      "race": "korvax",
+      "tag": "water",
+      "planet_submissions": 6,
+      "candidate_attempts": 4
+    },
+    {
+      "cycle": 70,
+      "completed_local": "2026-09-09T08:06:42.115484+08:00",
+      "spectrum": "O7p",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 5,
+      "candidate_attempts": 4
+    },
+    {
+      "cycle": 71,
+      "completed_local": "2026-09-09T08:06:59.334106+08:00",
+      "spectrum": "O7pf",
+      "category": "empty",
+      "race": "none",
+      "tag": "water",
+      "planet_submissions": 6,
+      "candidate_attempts": 2
+    }
+  ]
+}

@@ -5,11 +5,17 @@ from __future__ import annotations
 import hashlib
 import json
 import subprocess
+import sys
 import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-NAME = "NoMansSkyScanner-v1.1.0-NMS170671"
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from nms_scanner import __version__  # noqa: E402
+
+NAME = f"NoMansSkyScanner-v{__version__}-NMS170671"
 
 
 def main():
@@ -41,15 +47,27 @@ def main():
                 relative = source.relative_to(ROOT).as_posix()
                 assert package.read(f"{NAME}/{relative}") == source.read_bytes(), relative
         metadata = json.loads(package.read(f"{NAME}/RELEASE.json"))
-        assert metadata["program_version"] == "1.1.0"
+        assert metadata["program_version"] == __version__
+        assert metadata["star_filter_default"] is False
         assert metadata["auto_upload_default"] is False
         assert metadata["interface"] == "windows_gui"
+        assert metadata["star_filter_runtime_verified"] is True
+        evidence = metadata["star_filter_verification"]
+        report = json.loads(package.read(f"{NAME}/{evidence['report']}"))
+        assert report["program_version"] == evidence["tested_program_version"]
+        assert report["completed_warps"] == report["completed_scans"] == 71
+        assert evidence["completed_cycles"] == 71
+        assert report["planet_submissions"] == evidence["planet_submissions"] == 297
+        assert not report["filter_violations"] and not report["errors"]
+        assert report["dropped"] == 0
+        assert evidence["background_runtime_verified"] is False
+        assert evidence["discovery_persistence_verified"] is False
     smoke = (
         "import tkinter; import nms_scanner.gui; "
         "from prompt_toolkit.application import create_app_session; "
         "from prompt_toolkit.input import DummyInput; "
         "from prompt_toolkit.output import DummyOutput; "
-        "from nms_scanner import __version__; assert __version__ == '1.1.0';\n"
+        f"from nms_scanner import __version__; assert __version__ == {__version__!r};\n"
         "with create_app_session(input=DummyInput(), output=DummyOutput()):\n"
         "    import pymhf\n"
         "print('Portable imports OK; no game connection or GUI opened.')\n"

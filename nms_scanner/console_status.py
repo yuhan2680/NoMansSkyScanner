@@ -70,9 +70,11 @@ def status_message(event: dict, pid: int):
         if kind in controls:
             return controls[kind]
         if kind == "auto_upload_changed":
-            return "自动上传已开启；每次扫描后会处理全部待上传发现。" if event.get(
-                "enabled"
-            ) else "自动上传已关闭；不会提交新的批量上传请求。"
+            return (
+                "自动上传已开启；每次扫描后会处理全部待上传发现。"
+                if event.get("enabled")
+                else "自动上传已关闭；不会提交新的批量上传请求。"
+            )
         if kind == "upload_queued":
             return (
                 f"游戏已接受“上传全部”处理，本次待上传记录 {event.get('records')} 条；"
@@ -113,11 +115,43 @@ def status_message(event: dict, pid: int):
                 "map_not_ready_at_dispatch": "跃迁前的地图状态发生变化",
                 "map_clock_reset": "地图对象重新初始化，停止使用旧对象",
                 "invalid_map_clock": "地图计时数据异常",
+                "no_matching_candidate": (
+                    "本轮候选中未找到满足全部筛选条件及跃迁能力的目标；没有放宽筛选"
+                ),
+                "star_filter_invalid_attributes": "目标星系的分类数据无效，未发起跃迁",
+                "star_filter_unknown_category": "无法确认目标星系类别，未发起跃迁",
+                "star_filter_conflicting_attributes": "目标星系的分类标志冲突，未发起跃迁",
+                "star_filter_invalid_spectrum": "光谱数据无效，未发起跃迁",
+                "star_filter_invalid_panel": "地图附加标签数据无效，未发起跃迁",
+                "star_filter_panel_mismatch": "地图光谱与候选数据不一致，未发起跃迁",
+                "star_filter_target_not_verified": "跃迁目标未通过本次筛选确认",
             }.get(reason, "运行检查未通过")
             return (
                 f"{label}已停止：{explanation}（{reason}）。"
                 f"自动跃迁 {event.get('warps', 0)} 次，整系扫描 {event.get('scans', 0)} 次。"
                 "再次按 F1 不会重启本轮；请按 F3 并保留日志，完全退出游戏后才能重新测试。"
+            )
+        if kind == "star_filter_settings":
+            from nms_scanner.star_filter import GROUPS, StarFilter
+
+            return StarFilter.from_dict(
+                {key: event[key] for key in ("enabled", *GROUPS)}
+            ).describe()
+        if kind == "star_filter_verified" and event.get("selected"):
+            from nms_scanner.star_filter import CATEGORIES, RACES, TAGS
+
+            category = CATEGORIES.get(event.get("category"), "未知类别")
+            suffix = "" if event.get("suffix") == "none" else event.get("suffix", "?")
+            code = f"{event.get('letter', '?')}{event.get('digit', '?')}{suffix}"
+            tag = TAGS.get(event.get("tag"), "未知标签")
+            race = (
+                "无主导种族"
+                if event.get("race") == "none"
+                else RACES.get(event.get("race"), "未知种族")
+            )
+            return (
+                f"目标筛选通过：{code} / {category} / {race} / {tag}。"
+                f"本轮已跳过 {event.get('filtered_out', 0)} 个不匹配候选。"
             )
         if kind == "run_limits":
             return (
@@ -131,6 +165,7 @@ def status_message(event: dict, pid: int):
                 "map_transition_active": "银河地图仍在切换画面",
                 "map_cache_busy": "星区缓存尚未就绪",
                 "map_settling": "等待地图持续更新并完成开场",
+                "star_filter_panel_pending": "等待所选目标的地图标签更新",
                 "selection_transition_active": "选星界面仍在过渡",
                 "selection_settling": "等待选星界面稳定",
             }.get(event.get("reason"), "等待地图状态确认")

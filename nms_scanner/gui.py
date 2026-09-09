@@ -16,6 +16,12 @@ from nms_scanner import __version__
 from nms_scanner.console_status import LogTail, status_message
 from nms_scanner.control_channel import CommandWriter
 from nms_scanner.launcher import running_game
+from nms_scanner.star_filter import (
+    GROUPS,
+    StarFilter,
+    add_filter_arguments,
+    selection_from_args,
+)
 from nms_scanner.ui_state import DashboardState
 
 BG = "#08111F"
@@ -54,8 +60,8 @@ class ExplorerApp:
     def _configure_window(self):
         self.window.title(f"No Man's Sky 自动探索器 {__version__}")
         self.window.configure(bg=BG)
-        self.window.geometry("820x850")
-        self.window.minsize(760, 740)
+        self.window.geometry("1060x1330")
+        self.window.minsize(1000, 1280)
         self.window.resizable(True, True)
         self.window.option_add("*Font", f"{{{FONT}}} 10")
         try:
@@ -185,8 +191,53 @@ class ExplorerApp:
         controls.grid_columnconfigure(0, weight=1)
         controls.grid_columnconfigure(2, weight=1)
 
+        filters = tk.Frame(controls, bg=PANEL)
+        filters.grid(row=3, column=0, columnspan=4, sticky="ew", pady=(12, 0))
+        initial_filter = selection_from_args(self.args)
+        self.filter_enabled = tk.BooleanVar(value=initial_filter.enabled)
+        self.filter_toggle = self._checkbox(filters, "启用星系筛选", self.filter_enabled)
+        self.filter_toggle.pack(anchor="w")
+        self.filter_options = []
+        self.filter_groups = {}
+        for key, (labels, title) in GROUPS.items():
+            variables = self.filter_groups[key] = {}
+            selected = getattr(initial_filter, key)
+            row = tk.Frame(filters, bg=PANEL)
+            row.pack(fill="x", pady=(4, 0))
+            tk.Label(row, text=title, bg=PANEL, fg=MUTED, width=9, anchor="w").pack(side="left")
+            for option, label in labels.items():
+                variable = tk.BooleanVar(value=option in selected)
+                variables[option] = variable
+                checkbox = self._checkbox(row, label, variable)
+                checkbox.pack(side="left", padx=(0, 6))
+                self.filter_options.append(checkbox)
+            if key == "letters":
+                tk.Label(
+                    filters,
+                    text="黄 F/G  ·  红 M/K  ·  绿 E  ·  蓝 O/B  ·  紫 X/Y",
+                    bg=PANEL,
+                    fg=MUTED,
+                    font=(FONT, 9),
+                ).pack(anchor="w", padx=(90, 0))
+        tk.Label(
+            filters,
+            text=(
+                "地图标签按游戏实际显示匹配。要同时包含吉克与无人星系，"
+                "种族组勾选吉克和无主导种族，类别组也保留无人。"
+            ),
+            bg=PANEL,
+            fg=MUTED,
+            font=(FONT, 9),
+            wraplength=900,
+            justify="left",
+        ).pack(anchor="w", pady=(4, 0))
+        self.filter_hint = tk.Label(
+            filters, bg=PANEL, fg=MUTED, anchor="w", justify="left", wraplength=720, font=(FONT, 9)
+        )
+        self.filter_hint.pack(fill="x", pady=(5, 0))
+
         button_row = tk.Frame(controls, bg=PANEL)
-        button_row.grid(row=3, column=0, columnspan=4, sticky="ew", pady=(16, 0))
+        button_row.grid(row=4, column=0, columnspan=4, sticky="ew", pady=(12, 0))
         self.primary_button = self._button(button_row, self.primary, ACCENT, "#061B1B")
         self.primary_button.pack(side="left", fill="x", expand=True)
         self.upload_button = self._button(button_row, self.toggle_upload, PANEL_ALT, TEXT)
@@ -240,6 +291,52 @@ class ExplorerApp:
             justify="center",
         )
 
+    def _checkbox(self, parent, text, variable):
+        return tk.Checkbutton(
+            parent,
+            text=text,
+            variable=variable,
+            command=self._render_filter,
+            bg=PANEL,
+            fg=TEXT,
+            activebackground=PANEL,
+            activeforeground=TEXT,
+            selectcolor=BG,
+            disabledforeground="#66798E",
+            bd=0,
+            highlightthickness=0,
+            cursor="hand2",
+        )
+
+    def _selected_filter(self):
+        return StarFilter.from_dict(
+            {
+                "enabled": self.filter_enabled.get(),
+                **{
+                    key: [option for option, variable in variables.items() if variable.get()]
+                    for key, variables in self.filter_groups.items()
+                },
+            }
+        )
+
+    def _render_filter(self):
+        editable = self.state.run_state == "disconnected"
+        self.filter_toggle.configure(state="normal" if editable else "disabled")
+        enabled = self.filter_enabled.get()
+        for checkbox in self.filter_options:
+            checkbox.configure(state="normal" if editable and enabled else "disabled")
+        try:
+            self._selected_filter()
+            hint = (
+                "启用的各组至少勾选一项；组内任选、组间同时满足；全选表示该组不限。"
+                if enabled
+                else "筛选已关闭，按原有规则选择可达星系。"
+            )
+            hint += "连接前设置，本次运行固定。" if editable else "本次筛选设置已固定。"
+            self.filter_hint.configure(text=hint, fg=MUTED)
+        except ValueError as error:
+            self.filter_hint.configure(text=str(error), fg=AMBER)
+
     @staticmethod
     def _button(parent, command, background, foreground):
         return tk.Button(
@@ -277,6 +374,7 @@ class ExplorerApp:
     def _connect_and_start(self):
         try:
             max_warps, max_runtime = self._parse_limits()
+            star_filter = self._selected_filter()
             game = running_game()
             self.game_pid = game.pid
             token = uuid.uuid4().hex
@@ -306,6 +404,7 @@ class ExplorerApp:
                 "--control-token",
                 token,
             ]
+            command.extend(star_filter.arguments())
             startup = None
             flags = 0
             if os.name == "nt":
@@ -456,6 +555,7 @@ class ExplorerApp:
         entry_state = "normal" if self.state.run_state == "disconnected" else "disabled"
         self.warps_entry.configure(state=entry_state)
         self.minutes_entry.configure(state=entry_state)
+        self._render_filter()
 
     def close(self):
         if self.closing:
@@ -483,6 +583,7 @@ def parse_args(argv=None):
     parser = argparse.ArgumentParser(description="No Man's Sky 自动探索器图形界面")
     parser.add_argument("--max-warps", type=int, default=0)
     parser.add_argument("--max-runtime-seconds", type=float, default=0)
+    add_filter_arguments(parser)
     return parser.parse_args(argv)
 
 

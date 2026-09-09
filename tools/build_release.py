@@ -112,6 +112,10 @@ def main():
         "two-cycle-controls-trial-20260903T1153.json",
         "upload-trial-20260904T0100.json",
         "acceptance-20260904.json",
+        "STAR_FILTER_FINDINGS.md",
+        "star-filter-trial-20260909T0651.json",
+        "star-filter-trial-20260909T0723.json",
+        "star-filter-trial-20260909T0742.json",
     ):
         shutil.copy2(ROOT / "research" / name, DEST / "research" / name)
     (DEST / "RELEASE.json").write_text(
@@ -124,6 +128,16 @@ def main():
                 ),
                 "hotkeys": {"F1": "start_pause_resume", "F2": "toggle_auto_upload", "F3": "stop"},
                 "auto_upload_default": False,
+                "star_filter_default": False,
+                "star_filter_runtime_verified": True,
+                "star_filter_verification": {
+                    "report": "research/star-filter-trial-20260909T0742.json",
+                    "tested_program_version": "1.1.1-rc3",
+                    "completed_cycles": 71,
+                    "planet_submissions": 297,
+                    "background_runtime_verified": False,
+                    "discovery_persistence_verified": False,
+                },
                 "interface": "windows_gui",
             },
             ensure_ascii=False,

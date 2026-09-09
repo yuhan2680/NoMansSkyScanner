@@ -79,6 +79,9 @@ def main():
     )
     parser.add_argument("--control-file", type=Path, help=argparse.SUPPRESS)
     parser.add_argument("--control-token", help=argparse.SUPPRESS)
+    from nms_scanner.star_filter import add_filter_arguments, apply_star_filter, selection_from_args
+
+    add_filter_arguments(parser)
     args = parser.parse_args()
     root = Path(__file__).resolve().parent.parent
     phase, pid = "locate_game", None
@@ -97,6 +100,9 @@ def main():
         if value is not None
     }
     try:
+        star_filter = selection_from_args(args)
+        if star_filter.enabled and not (args.single or args.loop):
+            raise ValueError("星系筛选仅用于单次或循环探索模式。")
         if args.observe and args.exe:
             raise ValueError("观察模式通过进程身份确定路径，不接受 --exe。")
         if run_limits and not args.loop:
@@ -121,6 +127,8 @@ def main():
         exe = Path(process.info["exe"]) if process else args.exe
         phase = "validate_binary"
         profile = load_profile(root, single=automatic, exploration=args.loop)
+        if automatic:
+            apply_star_filter(profile, star_filter.as_dict())
         if args.loop:
             profile["exploration"] = apply_run_limits(profile["exploration"], run_limits)
         offsets = validate(exe, profile)
@@ -128,6 +136,7 @@ def main():
         print(f"{len(offsets)} 个选用函数签名唯一匹配。")
         if automatic:
             print("主游戏对象的两处代码引用已核查。")
+            print(star_filter.describe())
         if not attach:
             print("离线检查结束；没有启动、连接或注入游戏。")
             return 0
@@ -194,6 +203,7 @@ def main():
                     "expected_pid": process.pid,
                     "run_mode": run_mode,
                     "run_limits": run_limits,
+                    "star_filter": star_filter.as_dict(),
                     "control_file": str(control_file) if args.control_file else None,
                     "control_token": args.control_token,
                     "start_exe": False,

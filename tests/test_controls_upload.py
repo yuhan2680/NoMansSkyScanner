@@ -49,6 +49,9 @@ class FakeUploadEngine:
     def begin(self, context):
         return True
 
+    def selection_matches(self, context):
+        return True
+
     def selection_ready(self, context):
         return True
 

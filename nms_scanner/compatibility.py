@@ -116,17 +116,26 @@ def load_profile(root: Path, *, single: bool = False, exploration: bool = False)
         profile["hooks"].update(trial["hooks"])
         profile["calls"] = trial["calls"]
         profile["single_trial"] = trial
+        from nms_scanner.star_filter import StarFilter, validate_definition
+
+        profile["star_filter"] = validate_definition(
+            json.loads((root / "native/star_filter.json").read_text(encoding="utf-8"))
+        )
+        profile["star_filter_selection"] = StarFilter().as_dict()
         upload = json.loads((root / "native/upload.json").read_text(encoding="utf-8"))
         if (
-            upload.get("schema_version") != 1 or upload.get("mode") != "native_upload_all"
+            upload.get("schema_version") != 1
+            or upload.get("mode") != "native_upload_all"
             or upload.get("default_enabled") is not False
         ):
             raise ValueError("自动上传必须默认关闭，只允许本次会话按 F2 开启。")
         delay, limit = upload["settle_seconds"], upload["max_pending_records"]
         if (
-            type(delay) not in (int, float) or not math.isfinite(delay)
+            type(delay) not in (int, float)
+            or not math.isfinite(delay)
             or not 0.1 <= delay <= 30
-            or type(limit) is not int or not 1 <= limit <= 1_000_000
+            or type(limit) is not int
+            or not 1 <= limit <= 1_000_000
         ):
             raise ValueError("上传等待时间或发现数量检查上限无效。")
         if set(upload["calls"]) & (set(profile["hooks"]) | set(profile["calls"])):

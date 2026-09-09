@@ -45,6 +45,7 @@ from nms_scanner.native_windows import (  # noqa: E402
     read_own,
 )
 from nms_scanner.observation import Observation  # noqa: E402
+from nms_scanner.star_filter import apply_star_filter  # noqa: E402
 
 if not _internal.IS_INJECTED:
     raise RuntimeError("请使用 start_probe.bat；直接导入不会安装游戏钩子。")
@@ -56,6 +57,10 @@ if RUN_MODE not in {"observe", "single", "loop"}:
     raise RuntimeError("未知的运行模式，拒绝加载。")
 AUTOMATION_MODE = RUN_MODE in {"single", "loop"}
 PROFILE = load_profile(ROOT, single=AUTOMATION_MODE, exploration=RUN_MODE == "loop")
+if AUTOMATION_MODE:
+    apply_star_filter(
+        PROFILE, _internal.CONFIG.get("star_filter", PROFILE["star_filter_selection"])
+    )
 if RUN_MODE == "loop":
     PROFILE["exploration"] = apply_run_limits(
         PROFILE["exploration"], _internal.CONFIG.get("run_limits", {})
@@ -107,6 +112,8 @@ class NativeObserver(Mod):
             else:
                 self.single = SingleRun(engine, PROFILE["single_trial"], self.telemetry.notice)
         self.controls = SessionControls(self.telemetry, self.single)
+        if AUTOMATION_MODE:
+            self.telemetry.notice("star_filter_settings", **PROFILE["star_filter_selection"])
         self.worker = threading.Thread(target=self._worker, daemon=True, name="nms-observer")
         self.worker.start()
 

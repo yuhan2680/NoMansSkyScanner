@@ -1,0 +1,38 @@
+{
+  "version": "1.1.1-rc1",
+  "session_pid": 36820,
+  "start": "2026-09-08T22:51:05.086646+00:00",
+  "end": "2026-09-08T22:54:03.542519+00:00",
+  "source_log_sha256": "5505c0336e5f4654c037270ff348d6366d70a185e31127d433c51dbd36091b96",
+  "filter": {
+    "enabled": true,
+    "colors": [
+      "yellow"
+    ],
+    "categories": [
+      "normal",
+      "pirate",
+      "abandoned",
+      "empty"
+    ]
+  },
+  "selected_targets": 8,
+  "selected_colors": {
+    "yellow": 8
+  },
+  "rejected_colors": {
+    "purple": 4,
+    "green": 2,
+    "blue": 2,
+    "red": 1
+  },
+  "completed_warp_scan_cycles": 7,
+  "planet_submissions": 30,
+  "warp_calls_returned_true": 8,
+  "pause_events": 1,
+  "errors": [],
+  "stop_reason": "stop_requested",
+  "dropped": 0,
+  "selected_targets_all_foreground": true,
+  "limit": "黄色筛选运行通过；类别全选，未验收特定类别限制。第八次加载后暂停并停止，未扫描，不计作完整轮次。"
+}

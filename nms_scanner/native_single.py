@@ -8,6 +8,7 @@ import random
 import struct
 
 from nms_scanner.single_run import NativePreconditionError
+from nms_scanner.star_filter import StarFilter, classify_attributes, map_tag, spectrum
 
 
 def resolve_application(base, image_size, definition, reader):
@@ -59,6 +60,11 @@ class NativeSingleEngine:
         self.map_first_clock = self.map_last_clock = self.selection_clock = None
         self.planet_count = 0
         self.rng = random.Random()
+        self.star_filter = StarFilter.from_dict(profile["star_filter_selection"])
+        self.star_filter_layout = profile["star_filter"]["layout"]
+        self.filter_target = None
+        self.filter_rejections = 0
+        self.candidate_classification = None
         void = C.c_void_p
         definitions = {
             "own_freighter": (C.c_bool, [void]),
@@ -92,6 +98,9 @@ class NativeSingleEngine:
         self.map_wait_reason = None
         self.map_status = {}
         self.map_first_clock = self.map_last_clock = self.selection_clock = None
+        self.filter_target = None
+        self.filter_rejections = 0
+        self.candidate_classification = None
 
     def request_map(self):
         """Called on the application thread; let the game consume its own state queue."""
@@ -231,6 +240,8 @@ class NativeSingleEngine:
         return self._map_ready(context, data)
 
     def choose(self, context):
+        self.candidate_classification = None
+        self.filter_target = None
         data = self._map_context(context)
         if self._current_system(data) != self.source:
             self._fail("system_changed_before_warp")
@@ -281,6 +292,17 @@ class NativeSingleEngine:
             return False
         attributes, capability = AlignedBuffer(48), AlignedBuffer(16)
         self._call("classify_star", target, attributes.address)
+        if self.star_filter.enabled:
+            color, category, race = classify_attributes(attributes.bytes(), self.star_filter_layout)
+            self.candidate_classification = {
+                "color": color,
+                "category": category,
+                "race": race,
+                **spectrum(target, color),
+            }
+            if not self.star_filter.matches(self.candidate_classification, include_tag=False):
+                self.filter_rejections += 1
+                return False
         returned = self._call(
             "warp_check",
             data + self.layout["game_state"],
@@ -334,9 +356,46 @@ class NativeSingleEngine:
             return True
         return False
 
+    def selection_matches(self, context):
+        """Read labels the ordinary map already prepared; never generate planet data."""
+        if not self.star_filter.enabled:
+            return True
+        details = self.candidate_classification
+        if not details or not self.star_filter.matches(details, include_tag=False):
+            self._fail("star_filter_target_not_verified")
+        layout = self.profile["star_filter"]["panel"]
+        panel = context + layout["map_offset"]
+        query = self._integer(panel + layout["query_offset"])
+        rendered = self._integer(panel + layout["rendered_query_offset"])
+        if self._system(query) != self.target or rendered != query:
+            self.map_wait_reason = "star_filter_panel_pending"
+            return None
+        star_type = self._integer(panel + layout["star_type_offset"], 4)
+        color = self.star_filter_layout["star_types"].get(str(star_type))
+        if color != details["color"] or any(
+            details[key] != value for key, value in spectrum(query, color).items()
+        ):
+            self._fail("star_filter_panel_mismatch")
+        details["tag"] = map_tag(self.read(panel + layout["flags_offset"], 4))
+        self.map_wait_reason = None
+        if not self.star_filter.matches(details):
+            self.filter_target = None
+            self.filter_rejections += 1
+            return False
+        self.filter_target = (self.target, dict(details))
+        return True
+
     def dispatch(self, context):
         if not self.selection_ready(context):
             self._fail("map_not_ready_at_dispatch")
+        if self.star_filter.enabled and (
+            self.filter_target is None
+            or self.filter_target[0] != self.target
+            or not self.star_filter.matches(self.filter_target[1])
+        ):
+            self._fail("star_filter_target_not_verified")
+        if self.star_filter.enabled and self.selection_matches(context) is not True:
+            self._fail("star_filter_target_not_verified")
         if not self._call("warp_candidate", context, True):
             return False
         return self._call("warp_candidate", context, False)

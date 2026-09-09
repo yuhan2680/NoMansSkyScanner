@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: release-v1.1.0
+  group: release-v1.1.1
   cancel-in-progress: false
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
     if: >-
       github.ref == 'refs/heads/main' &&
       (github.event_name == 'workflow_dispatch' ||
-       contains(github.event.head_commit.message, '[release-v1.1.0]'))
+       contains(github.event.head_commit.message, '[release-v1.1.1]'))
     runs-on: windows-latest
     timeout-minutes: 20
     steps:
@@ -32,7 +32,7 @@ jobs:
       - name: Install pinned dependencies
         run: python -m pip install --index-url https://pypi.org/simple -r requirements-dev.txt
       - name: Check release version
-        run: python -c "from nms_scanner import __version__; assert __version__ == '1.1.0'"
+        run: python -c "from nms_scanner import __version__; assert __version__ == '1.1.1'"
       - name: Static checks
         run: python -m ruff check nms_scanner native tests tools
       - name: Non-game tests
@@ -45,7 +45,7 @@ jobs:
         run: python -X utf8 tools/verify_release.py
       - uses: actions/upload-artifact@v4
         with:
-          name: portable-v1.1.0
+          name: portable-v1.1.1
           if-no-files-found: error
           path: |
             dist/*.zip
@@ -63,20 +63,20 @@ jobs:
           persist-credentials: false
       - uses: actions/download-artifact@v4
         with:
-          name: portable-v1.1.0
+          name: portable-v1.1.1
           path: dist
-      - name: Publish v1.1.0 with portable assets
+      - name: Publish v1.1.1 with portable assets
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
         run: |
-          if gh release view v1.1.0 >/dev/null 2>&1; then
-            echo 'Release v1.1.0 already exists; refusing to replace it.'
+          if gh release view v1.1.1 >/dev/null 2>&1; then
+            echo 'Release v1.1.1 already exists; refusing to replace it.'
             exit 1
           fi
           (cd dist && sha256sum --check *.sha256)
-          gh release create v1.1.0 dist/*.zip dist/*.sha256 \
+          gh release create v1.1.1 dist/*.zip dist/*.sha256 \
             --target "$GITHUB_SHA" --draft \
-            --title 'v1.1.0 — 自动探索图形界面版' \
-            --notes-file releases/v1.1.0.md
-          gh release edit v1.1.0 --draft=false --latest
+            --title 'v1.1.1 — 星系筛选正式版' \
+            --notes-file releases/v1.1.1.md
+          gh release edit v1.1.1 --draft=false --prerelease=false --latest
