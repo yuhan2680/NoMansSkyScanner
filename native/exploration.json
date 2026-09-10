@@ -7,21 +7,22 @@
   "calls": {
     "queue_map_state": {
       "name": "cTkFSMState::StateChange_verified_full_body",
-      "rva": "0x2998af0",
-      "signature": "4C 8B 51 18 4D 8B D8 48 8B 05 8A E4 8C 00 4D 8D 42 18 49 39 40 08 75 1C 48 8B 05 71 E4 8C 00 49 39 00 75 10 0F 10 02 4D 89 5A 28 45 88 4A 30 41 0F 11 00 C3 48 8D 0D A5 E9 8C 00 E9 C0 3F FF FF",
-      "runtime_verified": false
+      "rva": "0x2bcb2a0",
+      "signature": "4C 8B 51 18 4D 8B D8 48 8B 05 1A 34 93 00 4D 8D 42 18 49 39 40 08 75 1C 48 8B 05 01 34 93 00 49 39 00 75 10 0F 10 02 4D 89 5A 28 45 88 4A 30 41 0F 11 00 C3 48 8D 0D 35 39 93 00 E9 F0 3F FF FF",
+      "runtime_verified": false,
+      "provenance": "178763 offline call-chain/ABI audit; see research/COSMOS_COMPATIBILITY.md. Runtime acceptance pending."
     }
   },
   "layout": {
     "state_owner": 24,
     "fsm_pending_state": 24,
-    "empty_state_rva": "0x3266f80",
-    "application_paused": 46245,
-    "environment_location": 1112,
-    "environment_stable_location": 1124,
+    "empty_state_rva": "0x34fe6c0",
+    "application_paused": 47317,
+    "environment_location": 1128,
+    "environment_stable_location": 1140,
     "freighter_internals": 10,
-    "warp_request": 7358432,
-    "warp_transition": 7342288,
-    "application_update_caller": "0x5f800b"
+    "warp_request": 7467424,
+    "warp_transition": 7450496,
+    "application_update_caller": "0x626063"
   }
 }

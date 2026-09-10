@@ -17,6 +17,11 @@ from nms_scanner.star_filter import StarFilter
 
 
 class FakeEngine:
+    scan_wait_reason = "test_not_ready"
+
+    def scan_ready(self, context):
+        return True
+
     def __init__(self):
         self.calls = []
         self.choices = deque([True])

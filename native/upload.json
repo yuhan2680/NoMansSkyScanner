@@ -7,19 +7,19 @@
   "calls": {
     "upload_all": {
       "name": "cGcFrontendPageDiscovery::UploadAndRewardAll",
-      "rva": "0x706060",
-      "signature": "48 89 4C 24 08 55 53 56 48 8D 6C 24 B9 48 81 EC 00 01 00 00 48 8B 05 5D ED 43 06 48 8B F1 48 8B 90 E0 B1 2B 00 48 8B 5A 30 8B 43 74 85 C0 0F 84 B5 03 00 00 33 C9 48 89 BC 24 30 01 00 00",
+      "rva": "0x757bd0",
+      "signature": "48 89 4C 24 08 55 53 56 48 8D 6C 24 B9 48 81 EC 00 01 00 00 48 8B 05 1D 1F 72 06 48 8B F1 48 8B 90 40 E8 2C 00 48 8B 5A 30 8B 43 74 85 C0 0F 84",
       "runtime_verified": false,
-      "provenance": "Pinned EXE RTTI UploadAndRewardAll lambda, vtable 0x47BC0D0; sole native call 0x704A65 from UPLOAD_ALL handler. Static void(cGcDiscoveryPageData&). See research/upload-all-disassembly.txt and UPLOAD_FINDINGS.md."
+      "provenance": "178763 offline call-chain/ABI audit; see research/COSMOS_COMPATIBILITY.md. Runtime acceptance pending."
     }
   },
   "layout": {
-    "application_update_caller": "0x5f800b",
-    "frontend_manager": 8566400,
-    "frontend_vtable_rva": "0x479ac40",
-    "frontend_page": 10128,
-    "discovery_page": 2864,
-    "page_reward_total": 27952,
+    "application_update_caller": "0x626063",
+    "frontend_manager": 8687696,
+    "frontend_vtable_rva": "0x4a34070",
+    "frontend_page": 11168,
+    "discovery_page": 2928,
+    "page_reward_total": 30208,
     "page_reward_hint": 124,
     "manager_data": 8,
     "registry": 48,
@@ -31,6 +31,6 @@
     "record_type": 56,
     "max_record_type": 16,
     "fsm_pending_state": 24,
-    "empty_state_rva": "0x3266f80"
+    "empty_state_rva": "0x34fe6c0"
   }
 }

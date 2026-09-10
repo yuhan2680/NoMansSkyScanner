@@ -200,7 +200,7 @@ class CallbackTests(unittest.TestCase):
         for function, args in [
             (observer.application_update, (123,)),
             (observer.simulation_update, (123, 0.1)),
-            (observer.discovery, (123, 456, 0)),
+            (observer.discovery, (123, 456, 0, True)),
             (observer.warp_check, (123, 456, 100.0, False, 789, 0)),
             (observer.warp_candidate_before, (123, True)),
             (observer.warp_candidate_before, (123, False)),

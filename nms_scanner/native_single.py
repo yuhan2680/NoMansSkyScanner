@@ -74,7 +74,7 @@ class NativeSingleEngine:
             "classify_star": (None, [C.c_uint64, void]),
             "warp_check": (void, [void, void, C.c_float, C.c_bool, C.c_uint64, void]),
             "warp_candidate": (C.c_bool, [void, C.c_bool]),
-            "discovery": (C.c_bool, [void, void, void]),
+            "discovery": (C.c_bool, [void, void, void, C.c_bool]),
         }
         if "exploration" in profile:
             definitions["queue_map_state"] = (None, [void, void, void, C.c_bool])
@@ -413,7 +413,27 @@ class NativeSingleEngine:
         solar = self._integer(context + self.layout["solar_system"])
         return data, solar
 
+    def scan_ready(self, context):
+        data, _ = self._scan_context(context)
+        env = data + self.layout["player_environment"]
+        self.scan_wait_reason = None
+        for key in ("environment_location", "environment_stable_location"):
+            if self._integer(env + self.layout[key], 4) != self.layout["freighter_internals"]:
+                self.scan_wait_reason = "freighter_interior_not_restored"
+                return False
+        for address, width in (
+            (self.application + self.layout["application_paused"], 1),
+            (data + self.layout["warp_request"], 4),
+            (data + self.layout["warp_transition"], 4),
+        ):
+            if self._integer(address, width):
+                self.scan_wait_reason = "post_load_transition_active"
+                return False
+        return True
+
     def begin_scan(self, context):
+        if not self.scan_ready(context):
+            return None
         _, solar = self._scan_context(context)
         count = self._integer(solar + self.layout["planet_count"], 4)
         if not 1 <= count <= self.layout["max_planets"]:
@@ -431,6 +451,8 @@ class NativeSingleEngine:
         return record
 
     def scan_planet(self, context, index):
+        if not self.scan_ready(context):
+            self._fail("freighter_state_changed_during_scan")
         data, solar = self._scan_context(context)
         if (
             solar != self.solar
@@ -438,5 +460,6 @@ class NativeSingleEngine:
         ):
             self._fail("solar_object_changed")
         record = self._planet_record(solar, index)
-        # The scanner room uses a null locally-new output and ignores this bool result.
-        self._call("discovery", data + self.layout["discovery_manager"], record, None)
+        # 178763's scanner room passes null locally-new and R9B=1. The fourth
+        # argument was absent in 170671; never reuse that three-argument ABI.
+        self._call("discovery", data + self.layout["discovery_manager"], record, None, True)

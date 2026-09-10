@@ -41,6 +41,9 @@ class ControlTests(unittest.TestCase):
 
 
 class FakeUploadEngine:
+    def scan_ready(self, context):
+        return True
+
     def __init__(self):
         self.calls = []
         self.checkpoint = lambda: None

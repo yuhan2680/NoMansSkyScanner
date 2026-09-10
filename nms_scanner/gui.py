@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import queue
 import subprocess
@@ -41,6 +42,9 @@ class ExplorerApp:
     def __init__(self, window: tk.Tk, args):
         self.window, self.args = window, args
         self.root = Path(__file__).resolve().parent.parent
+        self.game_version = json.loads(
+            (self.root / "native/profile.json").read_text(encoding="utf-8")
+        )["game_internal_version"]
         self.state = DashboardState()
         self.process = None
         self.game_pid = None
@@ -84,7 +88,7 @@ class ExplorerApp:
         ).pack(side="left")
         tk.Label(
             header,
-            text=f"v{__version__}  ·  Steam 170671",
+            text=f"v{__version__}  ·  Steam {self.game_version}",
             bg=ACCENT_DARK,
             fg=ACCENT,
             padx=12,

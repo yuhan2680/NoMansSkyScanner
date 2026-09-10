@@ -26,7 +26,7 @@
     "map_offset": 8640,
     "query_offset": 1488,
     "rendered_query_offset": 1472,
-    "star_type_offset": 2636,
-    "flags_offset": 2688
+    "star_type_offset": 3920,
+    "flags_offset": 3968
   }
 }

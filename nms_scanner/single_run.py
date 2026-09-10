@@ -37,6 +37,8 @@ class SingleRun:
         self.last_poll = clock()
         self.attempts = self.warps = self.scans = self.planet_index = self.planet_count = 0
         self.map_wait_notice = None
+        self.scan_stable_since = self.scan_last_world = None
+        self.scan_wait_notice = None
         self.engine.checkpoint = self.checkpoint
 
     def _notice_map_wait(self):
@@ -141,6 +143,9 @@ class SingleRun:
 
     def _set_stage(self, stage):
         self.stage = stage
+        if stage == "wait_scan":
+            self.scan_stable_since = self.scan_last_world = None
+            self.scan_wait_notice = None
         self.remaining = self.config["phase_timeout_seconds"]
         self.emit("single_stage", stage=stage)
 
@@ -208,6 +213,7 @@ class SingleRun:
                 return
             self._process_states()
             if self.stage == "failed" or self.paused.is_set():
+                self.scan_stable_since = self.scan_last_world = None
                 return
             self.remaining -= elapsed
             if self.remaining <= 0:
@@ -284,6 +290,25 @@ class SingleRun:
                         self._fail("warp_request_rejected")
             elif phase == "world":
                 if self.stage == "wait_scan":
+                    if not self.engine.scan_ready(context):
+                        self.scan_stable_since = self.scan_last_world = None
+                        reason = self.engine.scan_wait_reason
+                        if reason != self.scan_wait_notice:
+                            self.scan_wait_notice = reason
+                            self.emit("scan_waiting", reason=reason)
+                        return
+                    # Require consecutive world updates; a pause or stalled window
+                    # cannot satisfy the settling period using wall time alone.
+                    max_gap = self.config.get("post_load_max_frame_gap_seconds", 0.5)
+                    if self.scan_last_world is None or now - self.scan_last_world > max_gap:
+                        self.scan_stable_since = now
+                    self.scan_last_world = now
+                    settling = self.config.get("post_load_settle_seconds", 0)
+                    if now - self.scan_stable_since < settling:
+                        if self.scan_wait_notice != "freighter_settling":
+                            self.scan_wait_notice = "freighter_settling"
+                            self.emit("scan_waiting", reason="freighter_settling")
+                        return
                     count = self.engine.begin_scan(context)
                     if count is not None:
                         self.warps += 1  # begin_scan verifies the actual loaded target.

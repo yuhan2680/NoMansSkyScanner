@@ -1,0 +1,2 @@
+# Preserve audited profile bytes on Windows and GitHub Actions.
+native/*.json text eol=lf

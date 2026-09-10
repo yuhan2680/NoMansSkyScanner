@@ -256,8 +256,8 @@ class NativeObserver(Mod):
 
     # The upstream types.py omits the bool return type here; data.json's C++ symbol
     # declares bool. Preserve it in the trampoline even though this is a before hook.
-    @hook("discovery", C.c_bool, [C.c_void_p, C.c_void_p, C.c_void_p])
-    def discovery(self, this, discovery_data, locally_new):
+    @hook("discovery", C.c_bool, [C.c_void_p, C.c_void_p, C.c_void_p, C.c_bool])
+    def discovery(self, this, discovery_data, locally_new, scanner_flag):
         if not self.telemetry.active or self.telemetry.paused or self.telemetry.stopped:
             return
         self.telemetry.record(

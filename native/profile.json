@@ -1,9 +1,8 @@
 {
   "schema_version": 1,
   "mode": "observation_only",
-  "exe_sha256": "ea7e5a29bbf931f96ae8dda81553353aab3431dc38e4ed7dfb66bdce100770e3",
-  "game_internal_version": "170671",
-  "upstream_commit": "886a149e5aa7873777fc2fa14b73dc0c516cf794",
+  "exe_sha256": "8454ed80dffd5a98d7ffa747f629f6b00d95d1dde5a46a361b21bab665a3a4fb",
+  "game_internal_version": "178763",
   "hotkeys": {
     "primary": "F1",
     "upload": "F2",
@@ -11,60 +10,67 @@
   },
   "worker_interval_seconds": 0.05,
   "summary_interval_seconds": 1.0,
-  "interaction_data_offset": 48,
+  "interaction_data_offset": 40,
   "interaction_type_offset": 544,
   "scanner_type": 35,
   "warp_result_status_offset": 8,
   "hooks": {
     "application_update": {
       "name": "cGcApplication::Update",
-      "rva": "0x2da8e0",
-      "signature": "40 53 48 83 EC 20 E8 ? ? ? ? 48 89",
+      "rva": "0x2d7270",
+      "signature": "40 53 48 83 EC 20 E8 35 EC 90 02 48 89 05 3E BA E1 06 E8 39 64 EF FF 80 3D 8A 47 F8 04 00 0F B6 98 5E 01 00 00 74 1A 84 DB 74 16 80 3D 07 E1 BA",
       "mangled_name": "?Update@cGcApplication@@QEAAXXZ",
-      "runtime_verified": false
+      "runtime_verified": false,
+      "provenance": "178763 offline call-chain/ABI audit; see research/COSMOS_COMPATIBILITY.md. Runtime acceptance pending."
     },
     "simulation_update": {
       "name": "cGcGameState::Update",
-      "rva": "0x469b90",
-      "signature": "48 8B C4 48 89 58 ? 48 89 70 ? 55 57 41 54 41 56 41 57 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? F3 0F 10 91",
+      "rva": "0x489280",
+      "signature": "48 8B C4 48 89 58 10 48 89 70 18 48 89 78 20 55 41 54 41 55 41 56 41 57 48 8D A8 78 F8 FF FF 48 81 EC 60 08 00 00 F3 0F 10 91 F0 7A 31 00 0F 28",
       "mangled_name": "?Update@cGcGameState@@QEAAXM@Z",
-      "runtime_verified": false
+      "runtime_verified": false,
+      "provenance": "178763 offline call-chain/ABI audit; see research/COSMOS_COMPATIBILITY.md. Runtime acceptance pending."
     },
     "state_change": {
       "name": "cTkFSM::StateChange",
-      "rva": "0x2998a20",
-      "signature": "48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 4C 8B 51 ? 49 8B E8",
+      "rva": "0x2bcb1d0",
+      "signature": "48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 4C 8B 51 08 49 8B E8 4C 8B 1D DB 34 93 00 48 8B F9 48 8B 35 C9 34 93 00 48 89 5C 24 30 0F 1F 40 00",
       "mangled_name": "?StateChange@cTkFSM@@IEAAXAEBT?$TkID@$0IA@@@PEBX_N@Z",
-      "runtime_verified": false
+      "runtime_verified": false,
+      "provenance": "178763 offline call-chain/ABI audit; see research/COSMOS_COMPATIBILITY.md. Runtime acceptance pending."
     },
     "interaction": {
       "name": "cGcSimpleInteractionComponent::DoAction",
-      "rva": "0xf857b0",
-      "signature": "48 8B C4 55 41 56 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? 48 89 58 ? 4C 8B F1 48 89 70 ? 48 8D 8D",
+      "rva": "0x105c7f0",
+      "signature": "48 8B C4 48 89 48 08 55 41 56 48 8D A8 18 F7 FF FF 48 81 EC D8 09 00 00 48 89 58 18 4C 8B F1 48 89 70 E8 48 8D 8D C0 00 00 00 0F 57 C0 4C 89 78",
       "mangled_name": "?DoAction@cGcSimpleInteractionComponent@@AEAAXXZ",
-      "runtime_verified": false
+      "runtime_verified": false,
+      "provenance": "178763 offline call-chain/ABI audit; see research/COSMOS_COMPATIBILITY.md. Runtime acceptance pending."
     },
     "discovery": {
       "name": "cGcDiscoveryManager::SubmitDiscoveryData",
-      "rva": "0x433b20",
-      "signature": "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B 59 ? 49 8B F8 48 8B F2",
+      "rva": "0x450fa0",
+      "signature": "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 30 48 8B 59 08 41 0F B6 F9 49 8B F0 48 8B EA E8 D9 57 79 02 4C 8B CE 40 88 7C 24 20 44",
       "mangled_name": "?SubmitDiscoveryData@cGcDiscoveryManager@@QEAA_NAEBVcGcDiscoveryData@@PEA_N@Z",
-      "runtime_verified": false
+      "runtime_verified": false,
+      "provenance": "178763 offline call-chain/ABI audit; see research/COSMOS_COMPATIBILITY.md. Runtime acceptance pending."
     },
     "warp_check": {
       "name": "cGcGameState::ComputeWarpCapability",
-      "rva": "0x46ac70",
-      "signature": "40 53 56 41 54 41 55 41 56",
+      "rva": "0x48a510",
+      "signature": "40 53 55 41 54 41 55 41 56 48 81 EC A0 00 00 00 48 8B AC 24 F8 00 00 00 45 33 ED 0F 29 BC 24 80 00 00 00 45 0F B6 E1 0F 28 FA 44 0F 29 44 24 70",
       "mangled_name": "?ComputeWarpCapability@cGcGameState@@QEBA?AUWarpCapabilityResult@@M_N_KAEBUStarSystemKeyAttributes@cGcGalaxyAttributeGenerator@@@Z",
-      "runtime_verified": false
+      "runtime_verified": false,
+      "provenance": "178763 offline call-chain/ABI audit; see research/COSMOS_COMPATIBILITY.md. Runtime acceptance pending."
     },
     "warp_candidate": {
       "name": "galaxy_map_warp_candidate_122C1B0",
-      "rva": "0x122c1b0",
-      "signature": "48 8B C4 48 89 58 10 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 90 48 81 EC 70 01 00 00 0F 29 70 B8",
-      "provenance": "Offline disassembly: RCX=map data, DL=check-only, AL=bool; callers 0x121E10A and 0x121E71D. Observation only, never called by this tool.",
+      "rva": "0x1330480",
+      "signature": "48 8B C4 48 89 58 10 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 90 48 81 EC 70 01 00 00 0F 29 70 B8 4C 8B F1 48 81 C1 90 15 00 00 0F 29 78 A8",
+      "provenance": "178763 offline call-chain/ABI audit; see research/COSMOS_COMPATIBILITY.md. Runtime acceptance pending.",
       "runtime_verified": false
     }
   },
-  "image_size": 120115200
+  "image_size": 123764736,
+  "upstream_reference_commit": "886a149e5aa7873777fc2fa14b73dc0c516cf794"
 }

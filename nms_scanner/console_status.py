@@ -84,6 +84,12 @@ def status_message(event: dict, pid: int):
             return "扫描后没有待上传发现，本轮继续。"
         if kind == "upload_skipped":
             return "提交前自动上传已关闭，本轮未调用“上传全部”。"
+        if kind == "scan_waiting":
+            return {
+                "freighter_interior_not_restored": "等待角色恢复到货船内部，暂不扫描。",
+                "post_load_transition_active": "等待加载过渡和游戏暂停结束，暂不扫描。",
+                "freighter_settling": "货船内部状态已确认，等待连续世界更新稳定后扫描。",
+            }.get(event.get("reason"), "等待扫描条件就绪。")
         if kind == "control_ignored":
             return "本次会话已经结束，热键不会重新启动；重新运行需完全退出游戏后再开。"
         if kind == "single_failed":
@@ -98,6 +104,7 @@ def status_message(event: dict, pid: int):
                 "map_closed_before_dispatch": "发起跃迁前银河地图已关闭",
                 "warp_request_rejected": "游戏拒绝了跃迁请求",
                 "not_inside_freighter": "角色未处于稳定的货船内部位置",
+                "freighter_state_changed_during_scan": "扫描期间货船内部状态发生变化",
                 "wrong_map_request_phase": "开图回调的游戏线程来源未通过检查",
                 "cannot_open_map_in_current_state": "当前游戏界面不允许自动开图",
                 "system_changed_between_cycles": "两轮之间的恒星系发生了外部变化",

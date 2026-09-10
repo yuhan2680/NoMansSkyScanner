@@ -19,6 +19,9 @@ CONFIG = {
 
 
 class FakeLoopEngine:
+    def scan_ready(self, context):
+        return True
+
     def __init__(self):
         self.calls = []
         self.cycle = 0

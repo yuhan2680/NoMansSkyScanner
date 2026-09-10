@@ -14,8 +14,10 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from nms_scanner import __version__  # noqa: E402
+from nms_scanner.compatibility import load_profile  # noqa: E402
 
-NAME = f"NoMansSkyScanner-v{__version__}-NMS170671"
+PROFILE = json.loads((ROOT / "native/profile.json").read_text(encoding="utf-8"))
+NAME = f"NoMansSkyScanner-v{__version__}-NMS{PROFILE['game_internal_version']}"
 
 
 def main():
@@ -51,17 +53,20 @@ def main():
         assert metadata["star_filter_default"] is False
         assert metadata["auto_upload_default"] is False
         assert metadata["interface"] == "windows_gui"
-        assert metadata["star_filter_runtime_verified"] is True
-        evidence = metadata["star_filter_verification"]
-        report = json.loads(package.read(f"{NAME}/{evidence['report']}"))
-        assert report["program_version"] == evidence["tested_program_version"]
-        assert report["completed_warps"] == report["completed_scans"] == 71
-        assert evidence["completed_cycles"] == 71
-        assert report["planet_submissions"] == evidence["planet_submissions"] == 297
-        assert not report["filter_violations"] and not report["errors"]
-        assert report["dropped"] == 0
-        assert evidence["background_runtime_verified"] is False
-        assert evidence["discovery_persistence_verified"] is False
+        assert metadata["release_channel"] == "prerelease"
+        assert metadata["runtime_verified"] is False
+        assert metadata["star_filter_runtime_verified"] is False
+        assert metadata["background_runtime_verified"] is False
+        assert metadata["compatible_game_internal_version"] == PROFILE["game_internal_version"]
+        assert metadata["compatible_exe_sha256"] == PROFILE["exe_sha256"]
+        report = json.loads(package.read(f"{NAME}/{metadata['compatibility_audit']}"))
+        assert report["program_version"] == __version__
+        assert report["exe_sha256"] == PROFILE["exe_sha256"]
+        assert report["runtime_verified"] is False
+        selected = load_profile(ROOT, exploration=True)
+        assert report["matched_entry_count"] == len(selected["hooks"] | selected["calls"])
+        for relative, profile_digest in report["profile_sha256"].items():
+            assert hashlib.sha256(package.read(f"{NAME}/{relative}")).hexdigest() == profile_digest
     smoke = (
         "import tkinter; import nms_scanner.gui; "
         "from prompt_toolkit.application import create_app_session; "

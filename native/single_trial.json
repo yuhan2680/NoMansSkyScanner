@@ -6,73 +6,86 @@
   "map_settle_seconds": 5.0,
   "selection_settle_seconds": 1.0,
   "application": {
-    "rva": "0x6b44da0",
-    "reference_rvas": ["0x2daac8", "0x2daae3"]
+    "rva": "0x6e79ad0",
+    "reference_rvas": [
+      "0x2d7458",
+      "0x2d747f"
+    ]
   },
   "hooks": {
     "map_update": {
       "name": "cGcGalaxyMap::Data::Update",
-      "rva": "0x121c960",
-      "signature": "40 55 53 56 57 41 57 48 8D AC 24 30 B5 FF FF B8 D0 4B 00 00 E8 07 F5 F1 01 48 2B E0 4C 89 A4 24 C8 4B 00 00 0F 28 C1 F3",
-      "runtime_verified": false
+      "rva": "0x13207a0",
+      "signature": "40 55 53 56 57 41 57 48 8D AC 24 60 AC FF FF B8 A0 54 00 00 E8 F7 62 0A 02 48 2B E0 4C 89 A4 24 98 54 00 00 0F 28 C1 F3 0F 58 81 9C 14 00 00 4C",
+      "runtime_verified": false,
+      "provenance": "178763 offline call-chain/ABI audit; see research/COSMOS_COMPATIBILITY.md. Runtime acceptance pending."
     },
     "world_update": {
       "name": "cGcSimulation::Update",
-      "rva": "0x12a1060",
-      "signature": "48 8B C4 89 50 10 55 48 8D 6C 24 80 48 81 EC 80 01 00 00 44 0F 29 98 68 FF FF FF 48 89 58 18 48 89 70 F0 48 89 78 E8 4C",
-      "runtime_verified": false
+      "rva": "0x13a7380",
+      "signature": "48 8B C4 55 48 8D 6C 24 80 48 81 EC 80 01 00 00 44 0F 29 98 68 FF FF FF 48 89 58 18 48 89 70 F0 48 8B F1 48 89 78 E8 4C 89 68 D8 44 8B EA 4C 89",
+      "runtime_verified": false,
+      "provenance": "178763 offline call-chain/ABI audit; see research/COSMOS_COMPATIBILITY.md. Runtime acceptance pending."
     }
   },
   "calls": {
     "own_freighter": {
       "name": "cGcPlayerEnvironment::IsOnboardOwnFreighter",
-      "rva": "0x114ae30",
-      "signature": "48 83 EC 48 80 B9 FE 02 00 00 00 C6 04 24 00 74 2D 48 8D 81 01 03 00 00 4C 8D 04 24 4C 2B C0 90 0F B6 10 42 0F B6 0C 00",
-      "runtime_verified": false
+      "rva": "0x12444a0",
+      "signature": "48 83 EC 48 80 B9 FE 02 00 00 00 C6 04 24 00 74 2D 48 8D 81 01 03 00 00 4C 8D 04 24 4C 2B C0 90 0F B6 10 42 0F B6 0C 00 2B D1 75 07 48 FF C0 85",
+      "runtime_verified": false,
+      "provenance": "178763 offline call-chain/ABI audit; see research/COSMOS_COMPATIBILITY.md. Runtime acceptance pending."
     },
     "query_star": {
       "name": "cGcGalaxyVoxelCache::SpatialQueryFindNearestAlongDir",
-      "rva": "0x124e410",
-      "signature": "4C 8B DC 49 89 53 10 55 57 41 54 41 55 49 8D 6B B8 48 81 EC 28 01 00 00 0F B6 81 91 01 00 00 4D 8B E1 4D 8B E8 48 8B F9",
-      "runtime_verified": false
+      "rva": "0x1352770",
+      "signature": "4C 8B DC 49 89 53 10 55 57 41 54 41 55 49 8D 6B B8 48 81 EC 28 01 00 00 0F B6 81 91 01 00 00 4D 8B E1 4D 8B E8 48 8B F9 90 84 C0 0F 84 12 04 00",
+      "runtime_verified": false,
+      "provenance": "178763 offline call-chain/ABI audit; see research/COSMOS_COMPATIBILITY.md. Runtime acceptance pending."
     },
     "select_star": {
       "name": "map_selection_1226B20",
-      "rva": "0x1226b20",
-      "signature": "48 8B C4 48 89 58 18 48 89 70 20 55 57 41 54 41 55 41 57 48 8D A8 98 FA FF FF 48 81 EC 40 06 00 00 44 0F B7 7A 10 48 8B",
-      "runtime_verified": false
+      "rva": "0x132ad00",
+      "signature": "48 8B C4 48 89 58 18 48 89 70 20 55 57 41 54 41 55 41 57 48 8D A8 88 F5 FF FF 48 81 EC 50 0B 00 00 44 0F B7 7A 10 48 8B FA 44 0F B7 42 12 48 8B",
+      "runtime_verified": false,
+      "provenance": "178763 offline call-chain/ABI audit; see research/COSMOS_COMPATIBILITY.md. Runtime acceptance pending."
     },
     "star_distance": {
       "name": "SolarQueryResult::ComputeLightyearDistanceBetweenSolarSystems",
-      "rva": "0x124c570",
-      "signature": "48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 83 EC 40 44 0F B7 41 10 4C 8B D2 44 0F B7 59 12 41 BE",
-      "runtime_verified": false
+      "rva": "0x13508d0",
+      "signature": "48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 83 EC 40 44 0F B7 41 10 4C 8B D2 44 0F B7 59 12 41 BE FF 00 00 00 0F B7 52 10",
+      "runtime_verified": false,
+      "provenance": "178763 offline call-chain/ABI audit; see research/COSMOS_COMPATIBILITY.md. Runtime acceptance pending."
     },
     "classify_star": {
       "name": "cGcGalaxyAttributeGenerator::ClassifyStarKeyAttributes",
-      "rva": "0x1216440",
-      "signature": "48 89 5C 24 10 48 89 74 24 18 55 57 41 54 41 56 41 57 48 8D 6C 24 D0 48 81 EC 30 01 00 00 8B F9 8B D9 8B F1 C1 E7 14 4C",
-      "runtime_verified": false
+      "rva": "0x13191e0",
+      "signature": "48 89 5C 24 10 48 89 74 24 18 55 57 41 54 41 56 41 57 48 8D 6C 24 D0 48 81 EC 30 01 00 00 8B F9 8B D9 8B F1 C1 E7 14 4C 8B F1 C1 E3 08 48 8D 4D",
+      "runtime_verified": false,
+      "provenance": "178763 offline call-chain/ABI audit; see research/COSMOS_COMPATIBILITY.md. Runtime acceptance pending."
     }
   },
   "layout": {
     "application_data": 56,
-    "application_map_data": 9616136,
-    "application_paused": 46245,
-    "warp_request": 7358432,
-    "warp_transition": 7342288,
+    "application_map_data": 9758216,
+    "application_paused": 47317,
+    "warp_request": 7467424,
+    "warp_transition": 7450496,
     "fsm_current_state": 16,
     "fsm_state_name": 8,
-    "game_state": 3616,
-    "simulation": 4925664,
-    "current_ua": 2446080,
-    "player_environment": 5634464,
+    "game_state": 3696,
+    "simulation": 5033872,
+    "current_ua": 2447616,
+    "player_environment": 5742848,
     "map_initial": 5520,
     "map_mode": 0,
-    "interactive_map_modes": [0, 3],
+    "interactive_map_modes": [
+      0,
+      3
+    ],
     "map_clock": 5276,
     "map_popup_state": 9924,
-    "map_popup_selection": 11355,
+    "map_popup_selection": 12635,
     "popup_ready_state": 3,
     "map_coordinate": 5380,
     "map_cache": 80,
@@ -84,11 +97,16 @@
     "centre_test_mask": 18446742978492891135,
     "centre_target": 1099511627776,
     "solar_system": 2416592,
-    "planet_count": 8804,
+    "planet_count": 9540,
     "max_planets": 6,
-    "planet_discovery": 9784,
-    "planet_stride": 888944,
-    "discovery_manager": 2863576,
-    "scan_update_caller": "0x32ef23"
-  }
+    "planet_discovery": 11832,
+    "planet_stride": 889200,
+    "discovery_manager": 2943032,
+    "scan_update_caller": "0x33574f",
+    "environment_location": 1128,
+    "environment_stable_location": 1140,
+    "freighter_internals": 10
+  },
+  "post_load_settle_seconds": 3.0,
+  "post_load_max_frame_gap_seconds": 0.5
 }

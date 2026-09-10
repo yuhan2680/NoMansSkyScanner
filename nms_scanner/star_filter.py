@@ -133,7 +133,7 @@ def selection_from_args(args):
 
 
 def spectrum(seed, color):
-    """170671 RVA 0x151AA40, reproduced without executing native code.
+    """178763 RVA 0x1640C10, reproduced without executing native code.
 
     The map passes its selected universal address as the seed. Green consumes
     no letter-choice draw. Keep unsigned wraparound at the same instruction widths.
@@ -224,8 +224,8 @@ def validate_definition(config):
         "map_offset": 0x21C0,
         "query_offset": 0x5D0,
         "rendered_query_offset": 0x5C0,
-        "star_type_offset": 0xA4C,
-        "flags_offset": 0xA80,
+        "star_type_offset": 0xF50,
+        "flags_offset": 0xF80,
     }
     if config.get("panel") != expected_panel:
         raise ValueError("地图标签读取布局与已核查版本不符。")

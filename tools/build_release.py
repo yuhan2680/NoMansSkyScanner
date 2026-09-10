@@ -19,7 +19,8 @@ if str(ROOT) not in sys.path:
 
 from nms_scanner import __version__  # noqa: E402
 
-DEST = ROOT / f"dist/NoMansSkyScanner-v{__version__}-NMS170671"
+PROFILE = json.loads((ROOT / "native/profile.json").read_text(encoding="utf-8"))
+DEST = ROOT / f"dist/NoMansSkyScanner-v{__version__}-NMS{PROFILE['game_internal_version']}"
 RUNTIME = DEST / "runtime"
 
 
@@ -101,9 +102,9 @@ def main():
         "LICENSE",
         "requirements.lock.txt",
         "AGENTS.md",
-        "PROJECT_CONTEXT.md",
     ):
         shutil.copy2(ROOT / name, DEST / name)
+    shutil.copy2(ROOT / "docs/RELEASE_CONTEXT.md", DEST / "PROJECT_CONTEXT.md")
     (DEST / "research").mkdir()
     for name in (
         "UPLOAD_FINDINGS.md",
@@ -116,28 +117,24 @@ def main():
         "star-filter-trial-20260909T0651.json",
         "star-filter-trial-20260909T0723.json",
         "star-filter-trial-20260909T0742.json",
+        "COSMOS_COMPATIBILITY.md",
+        "cosmos-178763-audit.json",
     ):
         shutil.copy2(ROOT / "research" / name, DEST / "research" / name)
     (DEST / "RELEASE.json").write_text(
         json.dumps(
             {
                 "program_version": __version__,
-                "compatible_game_internal_version": "170671",
-                "compatible_exe_sha256": (
-                    "ea7e5a29bbf931f96ae8dda81553353aab3431dc38e4ed7dfb66bdce100770e3"
-                ),
+                "compatible_game_internal_version": PROFILE["game_internal_version"],
+                "compatible_exe_sha256": PROFILE["exe_sha256"],
                 "hotkeys": {"F1": "start_pause_resume", "F2": "toggle_auto_upload", "F3": "stop"},
                 "auto_upload_default": False,
                 "star_filter_default": False,
-                "star_filter_runtime_verified": True,
-                "star_filter_verification": {
-                    "report": "research/star-filter-trial-20260909T0742.json",
-                    "tested_program_version": "1.1.1-rc3",
-                    "completed_cycles": 71,
-                    "planet_submissions": 297,
-                    "background_runtime_verified": False,
-                    "discovery_persistence_verified": False,
-                },
+                "release_channel": "prerelease",
+                "runtime_verified": False,
+                "star_filter_runtime_verified": False,
+                "background_runtime_verified": False,
+                "compatibility_audit": "research/cosmos-178763-audit.json",
                 "interface": "windows_gui",
             },
             ensure_ascii=False,

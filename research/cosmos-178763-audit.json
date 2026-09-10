@@ -1,0 +1,50 @@
+{
+  "program_version": "1.1.2-rc1",
+  "generated_utc": "2026-09-10T02:02:13.076545+00:00",
+  "mode": "offline_file_only",
+  "game_internal_version": "178763",
+  "steam_build_id": "25208023",
+  "exe_sha256": "8454ed80dffd5a98d7ffa747f629f6b00d95d1dde5a46a361b21bab665a3a4fb",
+  "image_size": 123764736,
+  "runtime_verified": false,
+  "matched_entry_count": 16,
+  "matched_rvas": {
+    "application_update": "0x2d7270",
+    "simulation_update": "0x489280",
+    "state_change": "0x2bcb1d0",
+    "interaction": "0x105c7f0",
+    "discovery": "0x450fa0",
+    "warp_check": "0x48a510",
+    "warp_candidate": "0x1330480",
+    "map_update": "0x13207a0",
+    "world_update": "0x13a7380",
+    "own_freighter": "0x12444a0",
+    "query_star": "0x1352770",
+    "select_star": "0x132ad00",
+    "star_distance": "0x13508d0",
+    "classify_star": "0x13191e0",
+    "upload_all": "0x757bd0",
+    "queue_map_state": "0x2bcb2a0"
+  },
+  "application_references_verified": true,
+  "spectrum_matching_instruction_count": 276,
+  "discovery_argument_count": 4,
+  "scanner_fourth_argument": true,
+  "non_game_tests_passed": 102,
+  "profile_sha256": {
+    "native/profile.json": "ef49b57aac7cb611d36a2a045ba75b0e418e129ea8d16e53080fead3bfd96778",
+    "native/single_trial.json": "62a41999b018d1de8f080797b462f56ab16dadeaf8722479dfeef902f638ed6c",
+    "native/exploration.json": "2837d879bc025a22790b17905a1dc16c593ef31993a1048b6a34a976eb0bbf4f",
+    "native/upload.json": "aa820d75d199e8b1cf01c457d20087f5a12876a6a8a52c76b7904f7ec7ed23db",
+    "native/star_filter.json": "c853b78e489ae7ccb2740078ca80cb19f71d3116c8277845b36e14822056ee97"
+  },
+  "pending": [
+    "single_warp_scan",
+    "two_cycle",
+    "hotkeys",
+    "star_filters",
+    "upload",
+    "background"
+  ],
+  "evidence": "research/COSMOS_COMPATIBILITY.md"
+}

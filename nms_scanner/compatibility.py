@@ -22,6 +22,8 @@ def validate(exe: Path, profile: dict) -> dict:
     try:
         if pe.FILE_HEADER.Machine != 0x8664 or pe.OPTIONAL_HEADER.Magic != 0x20B:
             raise ValueError("需要 Windows x64 游戏。")
+        if "image_size" in profile and pe.OPTIONAL_HEADER.SizeOfImage != profile["image_size"]:
+            raise ValueError("游戏映像大小与已核查配置不符；禁止加载探针。")
         sections = [
             (s.VirtualAddress, s.get_data()[: min(s.SizeOfRawData, s.Misc_VirtualSize)])
             for s in pe.sections
@@ -101,7 +103,7 @@ def load_profile(root: Path, *, single: bool = False, exploration: bool = False)
             raise ValueError("单阶段超时必须在 10～300 秒之间。")
         if type(attempts) is not int or not 1 <= attempts <= 256:
             raise ValueError("候选尝试上限必须在 1～256 之间。")
-        for key in ("map_settle_seconds", "selection_settle_seconds"):
+        for key in ("map_settle_seconds", "selection_settle_seconds", "post_load_settle_seconds"):
             value = trial[key]
             if (
                 type(value) not in (int, float)
@@ -109,6 +111,9 @@ def load_profile(root: Path, *, single: bool = False, exploration: bool = False)
                 or not 0.1 <= value <= min(30, timeout)
             ):
                 raise ValueError(f"{key} 必须在 0.1～30 秒之间且不超过阶段超时。")
+        gap = trial["post_load_max_frame_gap_seconds"]
+        if type(gap) not in (int, float) or not math.isfinite(gap) or not 0.1 <= gap <= 2:
+            raise ValueError("加载后世界帧最大间隔必须为 0.1～2 秒。")
         if set(trial["hooks"]) & set(profile["hooks"]) or set(trial["calls"]) & set(
             profile["hooks"]
         ):
